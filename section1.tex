@@ -1,0 +1,146 @@
+\chapter{Giới thiệu về công nghệ Blockchain}
+\section{Nền tảng lý thuyết}
+\subsection{Hàm băm}
+\subsubsection{Tổng quan về hàm băm}
+Hàm băm là một thuật toán được sử dụng để biến đổi dữ liệu đầu vào thành một chuỗi ngắn hơn và đại diện
+cho dữ liệu đó, được gọi là giá trị băm. Giá trị đầu vào của hàm băm là tuỳ ý nhưng đầu ra của hàm băm là một giá trị 
+cố định sẵn, được gọi là độ dài băm. Độ dài băm có thể là 128, 256 hoặc 512 bit.
+Giá trị băm là duy nhất cho mỗi dữ liệu đầu vào và không thể dễ dàng được tái tạo ngược lại dữ liệu gốc ban đầu. Điều này đảm bảo tính toàn vẹn và 
+bảo mật của dữ liệu.
+
+Hàm băm có các tính chất để đảm bảo tính toàn vẹn và bảo mật của dữ liệu:
+\begin{itemize}
+\item[-] Tính một chiều: Hàm băm là đơn chiều, nghĩa là không thể dễ dàng 
+tái tạo ngược dữ liệu đầu vào từ giá trị băm.
+\item[-] Tính kháng va chạm yếu: đảm bảo rằng việc tìm kiếm hai dữ liệu đầu vào khác nhau có cùng 
+giá trị băm là rất khó khăn. Tính va chạm yếu đóng vai trò quan trọng trong việc đảm bảo tính toàn
+vẹn của dữ liệu và tránh các cuộc tấn công nhằm thay đổi dữ liệu đầu vào. 
+\item[-] Tính kháng va chạm mạnh:  Tính kháng va chạm mạnh đảm bảo rằng việc tìm kiếm một cặp dữ 
+liệu đầu vào cho ra cùng một giá trị băm là rất khó khăn và tốn nhiều thời gian, dữ liệu tính toán.
+Tính kháng va chạm mạnh đóng vai trò quan trọng trong việc tăng cường tính bảo mật của hàm băm và 
+đảm bảo tính toàn vẹn của dữ liệu.
+\item[] 
+\end{itemize}
+
+Hàm băm được sử dụng rộng rãi trong các ứng dụng bảo mật và xác thực. Ví dụ như trong việc lưu trữ
+mật khẩu của người dùng. Thay vì lưu trữ mật khẩu người dùng dưới dạng văn bản thông thường, hàm 
+băm sẽ được sử dụng để biến đổi mật khẩu thành một giá trị băm duy nhất. Khi người dùng đăng nhập, 
+hệ thống sẽ so sánh giá trị băm của mật khẩu được nhập vào với giá trị băm đã được lưu trữ. Nếu hai 
+giá trị này khớp nhau, người dùng sẽ được cho phép truy cập vào hệ thống.
+
+Hàm băm cũng được sử dụng trong việc xác minh tính toàn vẹn của dữ liệu trong quá trình truyền tải, 
+nơi một giá trị băm được tạo ra cho dữ liệu và gửi đi cùng với dữ liệu ban đầu. Người nhận có thể 
+sử dụng hàm băm để kiểm tra tính toàn vẹn của dữ liệu bằng cách so sánh giá trị băm nhận được với 
+giá trị băm được gửi đi ban đầu. Nếu hai giá trị băm này khớp nhau, dữ liệu được xác định là chưa 
+bị thay đổi trong quá trình truyền tải.
+
+Một số hàm được sử dụng phổ biến trong các ứng dụng bảo mật và xác thực: MD5, SHA-1, SHA-256, SHA-512...
+Trong đó SHA-256 được sử dụng phổ biến nhất vì tính toán nhanh, mức độ bảo mật cao.
+\subsubsection{Hàm băm SHA-256}
+Thuật toán Secure Hash Algorithm (SHA) được phát triển bởi Cơ quan An ninh
+Quốc gia Hoa Kỳ (National Security Agency - NSA), để chuyển đổi độ dài dữ liệu thành một độ dài cố định.
+
+SHA-256 là hàm băm có đầu ra có độ dài 256 bit. SHA-256 với kết quả đầu ra tương đương với $2^{256}$ bits.
+Đây là một hàm băm an toàn bởi vì nó có độ khó tìm kiếm kháng va chạm mạnh. 
+
+Có một số phương pháp để tấn công SHA-256 như :
+\begin{itemize}
+\item[-] Brute force: Đây là phương pháp tấn công đơn giản nhất, trong đó kẻ tấn công
+thử tất cả các khóa để tìm ra giá trị băm phù hợp. 
+\item[-] Tấn công preimage: Đây là phương pháp tìm kiếm đầu vào phù hợp với một giá 
+trị băm đã biết trước. Nếu kẻ tấn công có thể tìm ra đầu vào phù hợp với giá trị băm, thì an toàn của hàm băm sẽ bị đe dọa.
+\item[-] Tấn công collision: Đây là phương pháp tìm kiếm hai đầu vào khác nhau nhưng cho
+cùng một giá trị băm. Nếu kẻ tấn công có thể tìm ra hai đầu vào như vậy, thì an toàn của hàm băm sẽ bị đe dọa.
+\end{itemize}
+
+Tấn công Brute-force khó thực hiện bởi vì độ dài của đầu vào là $2^{256}$ bits.
+Hiện tại, Frontier xây dựng vào năm 2022 bởi công ty công nghệ thông tin đa quốc gia
+Hewlett Packard Enterprise là siêu máy tính có tốc độ tính toán nhanh nhất hiện nay. Nó có thể tính
+toán khoảng $10^{12}$ phép tính trên giây. Thế giới có 8 tỷ người, giả sử mọi người đều tính toán
+không ngừng nghỉ, 1 năm sẽ tính được $2,52 \times 10^{32}$ phép tính. Vậy cần khoảng $1,23 \times 10^{40}$ năm để tính hết các 
+trường hợp đầu ra của SHA-256. 
+
+Tấn công collision và tấn công preimage cũng khó thực hiện bởi vì:
+\begin{itemize}
+    \item[-] Đầu vào có độ dài lớn: có thể lên tới $2^{256}$ bits.
+    \item[-] Không thể tái tạo đầu vào từ giá trị băm: Với thuật toán băm như SHA-256, việc tìm kiếm một đầu vào có cùng giá trị hash với một giá trị hash đã biết (tấn công preimage) cũng rất khó khăn. Điều này là do giá trị hash được tạo ra bằng cách áp dụng một hàm băm không thể đảo ngược (one-way function), tức là không thể tái tạo đầu vào ban đầu từ giá trị hash.
+\end{itemize}
+
+Bởi vậy SHA-256 là một hàm băm an toàn, được sử dụng phổ biến trong các ứng dụng bảo mật và xác thực.
+
+\subsubsection{Các thức hoạt động SHA-256}
+SHA-256 bao gồm các bước sau:\cite{VIBLO}
+
+\begin{itemize}
+    \item[\textbf{Bước 1: }] Khởi tạo giá trị đầu vào cho hàm băm SHA-256.
+        \item[1.1:] Chuyển dữ liệu đầu vào thành chuỗi nhị phân.
+        \item[1.2:] Thêm 1 bit 1 vào cuối chuỗi nhị phân.
+        \item[1.3:] Nối 0 cho đến khi độ dài chuỗi nhị phân $\mod$ 512 = 64 .
+        \item[1.4:] Độ dài của dữ liệu đầu vào được chuyển thành chuỗi nhị phân 64 bits, 
+        sau đó được thêm vào cuối chuỗi nhị phân. 
+    \item[\textbf{Bước 2:}] Khởi tạo buffer (bộ đệm)
+        \item[2.1:] Tạo các giá trị băm từ H1 đến H8 biểu diễn cho 32 bit đầu tiên của
+        căn bậc hai của 8 số nguyên tố đầu tiên: 2, 3, 5, 7, 11, 13, 17, 19
+    \item[\textbf{Bước 3:}] Khởi tạo hằng số k.
+        \item[3.1:] Khởi tạo mảng chứa 64 hằng số tròn, mỗi giá trị $k_i (i = 0...63)$
+        có độ dài 32 bits, ứng với 32 bits đầu tiên của căn bậc ba của 64 số nguyên tố 
+        đầu tiên.
+    \item[\textbf{Bước 4:}] Vòng lặp Chunk
+        \item[4.1:] Chia đầu vào ở cuối bước 1 thành N vòng lặp, mỗi vòng lặp có độ
+        dài 512 bits.
+        Thực hiện các bước 5, 6, 7 đối với mỗi vòng. Tại cuối mỗi vòng
+        lặp , ta sẽ tính toán lại các giá trị băm $h_i (i = 0...7)$. 
+    \item[\textbf{Bước 5:}] Tạo Message Schedule (w)
+        \item[5.1:] Chia 512 bits của mỗi dữ liệu chunk thành các đoạn 32 bits,
+        Thêm 48 đoạn dữ liệu 0 vào cuối để tạo thành mảng w[0...63]
+        \item[5.2:] Chỉnh sửa các đoạn dữ liệu 0 ở cuối mảng w theo thuật toán sau:
+
+\begin{mybox}
+    \begin{lstlisting}
+    for i from w[16...63]:
+        S0 = (w[i-15] rightrotate 7) xor (w[i-15] rightrotate 18)
+        xor (w[i-15] rightshift 3)
+        S1 = (w[i- 2] rightrotate 17) xor (w[i- 2] rightrotate 19)
+        xor (w[i- 2] rightshift 10)
+        w[i] = w[i-16] + S0 + w[i-7] + S1
+    \end{lstlisting}
+\end{mybox}
+    \item[\textbf{Bước 6:}] Nén
+    \item[6.1:] Khởi tạo các biến a, b, c, d, e, f, g, h có giá trị bằng h0...h7,
+    \item[6.2:] Chạy vòng lặp nén làm biến đổi các giá trị từ a...h theo thuật toán sau:
+\begin{mybox}
+    \begin{lstlisting}
+    for i from 0 to 63:
+        S1 = (e rightrotate 6) xor (e rightrotate 11) xor (e rightrotate 25)
+        ch = (e and f) xor ((not e) and g)
+        temp1 = h + S1 + ch + k[i] + w[i]
+        S0 = (a rightrotate 2) xor (a rightrotate 13) xor (a rightrotate 22)
+        maj = (a and b) xor (a and c) xor (b and c)
+        temp2 = S0 + maj
+        h = g
+        g = f
+        f = e
+        e = d + temp1
+        d = c
+        c = b
+        b = a
+        a = temp1 + temp2
+    \end{lstlisting}
+\end{mybox}
+    \item[\textbf{Bước 7:}] Cập nhật các giá trị băm h0...h7
+\begin{mybox}
+    \begin{lstlisting}
+    h0 = h0 + a
+    h1 = h1 + b
+    h2 = h2 + c
+    h3 = h3 + d
+    h4 = h4 + e
+    h5 = h5 + f
+    h6 = h6 + g
+    h7 = h7 + h
+    \end{lstlisting}
+\end{mybox}
+\item[\textbf{Bước 8:}] Tính toán giá trị băm cuối cùng bằng cách nối các chuỗi h0...h7
+\end{itemize}
+
+
