@@ -10,8 +10,8 @@ kỹ thuật xác thực người dùng và đảm bảo tính toàn vẹn của
 
 Hệ mật mã là hệ thống bao gồm các thành phần như sau:
 \begin{itemize}
-    \item[-] Bản rõ (plaintext) là tập hợp hữu hạn các thông tin cần được bảo mật.
-    \item[-] Bản mã (ciphertext) là tập hợp hữu hạn các thông tin được mã hóa từ bản rõ.
+    \item[-] Bản rõ là tập hợp hữu hạn các thông tin cần được bảo mật.
+    \item[-] Bản mã là tập hợp hữu hạn các thông tin được mã hóa từ bản rõ.
     \item[-] Một tập hợp các khóa: khoá công khai $K_{pub}$ và khoá bí mật $k_{pri}$.
     \item[-] Một thuật toán mã hóa $E$, mã hoá bản rõ thành bản mã.
     \item[-] Một thuật toán giải mã $D$, giải mã bản mã thành bản rõ gốc.
@@ -55,7 +55,7 @@ Hệ mật sẽ bao gồm:
 \begin{itemize}
     \item[-] Bản rõ (M)
     \item[-] Bản mã (C)
-    \item[-] Khoá(K)
+    \item[-] Khoá (K)
     \item[-] Mã hoá (E): $C = E(K,M)$
     \item[-] Giải mã (D): $M = D(K,C) = D(K,E(K,M))$
 \end{itemize}
@@ -85,7 +85,7 @@ Hệ mật sẽ bao gồm:
 \begin{itemize}
     \item[-] Bản rõ (M)
     \item[-] Bản mã (C)
-    \item[-] Khoá(K): 
+    \item[-] Khoá (K): 
         \\+ Khoá công khai ($K_{pub}$)
         \\+ Khoá bí mật ($K_{pri}$) 
     \item[-] Mã hoá (E): $C = E(K_{pub},M)$
@@ -99,13 +99,13 @@ Một số phương pháp sử dụng để trao đổi khoá trong có hệ m�
     \item[-] Trao đổi khoá ElGamal
 \end{itemize}
 
-trong bài luận này, em sẽ tập chung vào trao đổi khoá Diffie-Hellman.
+trong khoá luận này, em sẽ tập chung vào trao đổi khoá Diffie-Hellman.
 \subsection{Trao đổi khoá Diffie-Hellman}
 
 Thuật toán trao đổi khóa Diffie-Hellman giải quyết tình huống sau. Alice và
 Bob muốn chia sẻ một khóa bí mật để sử dụng trong mật mã đối xứng, nhưng
-phương tiện liên lạc duy nhất của họ không an toàn. Mọi thông tin mà họ trao
-đổi đều được quan sát bởi Eve - kẻ tấn công. Làm cách nào để Alice và Bob có
+phương thức liên lạc của họ không an toàn. Mọi thông tin mà họ trao
+đổi đều được quan sát bởi Eve - kẻ tấn công. Làm sao để Alice và Bob có
 thể chia sẻ khóa mà Eve không biết? Độ khó của bài toán logarit rời
 rạc trong $\mathbb{F}^*_p$ đã đưa ra một giải pháp.
 
@@ -137,7 +137,7 @@ rạc trong $\mathbb{F}^*_p$ đã đưa ra một giải pháp.
 % 	Khóa bí mật của cả hai là giá trị $B^a \equiv (g^b)^a \equiv g^{ab} \equiv (g^a)^b \equiv A^b \pmod{p}$
 % \end{tabular}
 
-Đầu tiên, Alice và Bob thống nhất sử dụng một số nguyên tố $p$ và một số nguyên khác không $g$ theo modulo $p$. 
+Đầu tiên, Alice và Bob thống nhất sử dụng một số nguyên tố $p$ và một số nguyên khác không $g$  theo modulo $p$. 
 Tiếp theo, Alice bí mật chọn một số nguyên $a$ và không cho ai biết. Cùng lúc đó, Bob cũng bí mật chọn một số nguyên $b$.
 Alice và Bob sử dụng những số bí mật của họ và tính
 $$\underbrace{A \equiv g^a \pmod{p}}_{\text{Alice tính}} \text{ và } \underbrace{B \equiv g^b \pmod{p}}_{\text{Bob tính}}$$.
@@ -146,14 +146,14 @@ Sau đó, họ trao đổi với nhau giá trị vừa tính được, Alice g�
 Cuối cùng, Bob và Alice tiếp tục sử dụng những số bí mật mà họ đã chọn ở bước trước đó, và tính
 $$\underbrace{A' \equiv B^a \pmod{p}}_{\text{Alice tính}} \text{ và } \underbrace{B' \equiv A^b \pmod{p}}_{\text{Bob tính}}$$.
 
-Giá trị cả hai thu được, $A'$ và $B'$, là bằng nhau, vì:
+$A'$ và $B'$, là bằng nhau, vì:
 $$A' \equiv B^a \equiv (g^a)^b \equiv g^{ab} \equiv (g^b)^a \equiv A^b \equiv B' \pmod{p}.$$
 
 Giá trị này là khóa mà cả hai cùng chấp nhận sử dụng.
 
 Kẻ tấn công biết được giá trị $p,g,g^a \mod p, g^b \mod p $ nhưng không 
-tính toán được khoá $k = g^{ab} \mod p$ vì đây là một bài toán khó giải 
-trong thời gian đa thức. 
+tính toán được khoá $k = g^{ab} \mod p$. Đây là một bài toán khó giải 
+trong thời gian đa thức. \cite{Diffie_Hellman}
 
 \subsection{Mật mã đường cong elliptic}
 \subsubsection{Khái niệm đường cong elliptic}
@@ -162,7 +162,7 @@ Một \textit{đường cong Elliptic} là tập nghiệm của một phương t
 $$Y^2 = X^3 + AX + B$$ cùng với một điểm $\mathcal{O}$ ở vô cùng, trong đó hằng số $A$ và $B$ thỏa mãn
 $$ 4A^3 + 27B^2 \neq 0$$
 Các phương trình thuộc loại này được gọi là \textit{phương trình Weierstrass}. 
-Đồ thị của đường cong elliptic có dạng đối xứng qua trục hoành.
+Đồ thị của đường cong elliptic có dạng đối xứng qua trục hoành. \cite{Elliptic_Curve}
 
 Điểm $\mathcal{O}$ là điểm đặc biệt của đường cong elliptic, nó không thuộc đường cong.
 Khi ta cộng điểm $P$ với một điểm $P'$ đối xứng với $P$ qua đường cong thì ta có:
@@ -220,7 +220,7 @@ $$ E_1: Y^2=X^3-3X+3 $$ và $$ E_2: Y^2=X^3-5X+5 $$ được minh họa ở \hyp
 
 
 \subsubsection{Các phép toán trên đường cong elliptic}
-a) Phép cộng
+a) Phép cộng 
 
 Luật cộng trên $E$ được định nghĩa như sau:
 
@@ -341,7 +341,7 @@ Tập hợp các điểm trên $E$ có toạ độ thuộc $\mathbb{F} _p$ đư�
 $$E(F_p) = \{(x, y) : x, y \in \mathbb{F}_p\ \text{thỏa mãn}\ y^2 = x^3 + A x + B\} \cup \mathcal{O}$$
 
 \subsubsection{Khái niệm mật mã đường cong elliptic}
-Mật mã đường cong elliptic (Elliptic Curve Cryptography - ECC) 
+Mật mã đường cong elliptic (ECC) 
 là một phương pháp mã hóa và giải mã thông tin bằng cách sử dụng các 
 điểm trên đường cong elliptic. ECC được sử dụng để đảm bảo tính bảo 
 mật và an toàn trong các ứng dụng mật mã, như mã hóa thông tin, xác thực người dùng, và tạo chữ ký số.
@@ -351,11 +351,10 @@ rạc cho trường hữu hạn $F_p$ bằng bài toán logarit rời rạc cho 
 Đây là các bài toán khó có thể giải quyết trong thời gian đa thức. Phù 
 hợp để sử dụng trong các ứng dụng mật mã.
 
-a) Trao đổi khoá Diffie - Hellman trên elliptic
+a) Trao đổi khoá Diffie - Hellman trên đường cong elliptic
 
 	Alice và Bob cùng đồng ý sử dụng một đường cong elliptic $E (\mathbb{F}_p)$ và một điểm $P \in E (\mathbb{F}_p)$.
-	Alice bí mật chọn một giá trị $n_A$, Bob chọn một giá trị $n_B$
-Cả hai sử dụng số bí mật của họ và tính
+	Alice bí mật chọn một giá trị $n_A$, Bob chọn một giá trị $n_B$. Cả hai sử dụng số bí mật của họ và tính
 $$\underbrace{Q_A = (n_AP)}_{\text{Alice tính}} \text{ và } \underbrace{Q_B = (n_BP)}_{\text{Bob tính}}$$
 
 Sau đó, họ trao đổi với nhau giá trị vừa tính được, Alice gửi $Q_A$ cho Bob và Bob gửi
@@ -363,8 +362,8 @@ $Q_B$ cho Alice. Sau đó tính $n_A Q_B$ và $ n_BQ_A $.
 Và họ có khóa bí mật chung
 $$ n_AQ_B = (n_An_B)P = n_BQ_A,$$
 
-Tương tự như bài toán logarit rời rạc trên trường hữu hạn, bài toán logarit rời rạc trên đường cong elliptic 
-cũng là một bài toán khó giải. 
+Giống như bài toán logarit rời rạc trên trường hữu hạn, bài toán logarit rời rạc trên đường cong elliptic 
+cũng là một bài toán khó. 
 
 Hiện nay, thuật toán phổ biến để giải quyết bài toán logarit rời rạc 
 trên đường cong elliptic là thuật toán Pollard's rho và thuật toán 
@@ -373,26 +372,33 @@ trên đường cong elliptic là thuật toán Pollard's rho và thuật toán
 Thuật toán Pollard's rho được sử dụng để tìm giá trị bí mật của 
 logarit rời rạc trên đường cong elliptic bằng cách sử dụng phép 
 nhân trên đường cong để tìm kiếm các chu kỳ lặp lại. Thuật toán này 
-có độ phức tạp tính toán khoảng O(sqrt(n)), trong đó n là số lượng 
+có độ phức tạp tính toán khoảng $O(\sqrt n)$, trong đó $n$ là số lượng 
 phần tử trong đường cong.
 
 Vậy nên để đảm bảo độ bảo mật và tính khó tính toán cho bài toán trên,
 ta sử dụng đường cong elliptic có số phần tử lớn, hay chọn $p$ là một
-số nguyên tố lớn, và chọn 1 đường cong elliptic trên trường hữu hạn $F_p$.
+số nguyên tố lớn, và chọn 1 đường cong elliptic trên trường hữu hạn $F_p$. \cite{Elliptic_Curve}
 
 \subsection{Mật mã đường cong elliptic trong chữ ký số}
-\subsubsection{Chữ ký số}
+\subsubsection{Chữ ký số} 
 
+Chữ ký số là một phương pháp xác thực nguồn gốc và tính toàn vẹn của tài liệu điện tử hoặc thông tin truyền qua mạng. 
 
-Chữ ký số là một phương pháp xác thực nguồn gốc và tính toàn vẹn của tài liệu điện tử hoặc thông tin truyền qua mạng. Chữ ký số được tạo ra bằng cách sử dụng một cặp khóa bí mật (private key) và khóa công khai (public key) để mã hóa thông tin về chữ ký. Khóa bí mật được giữ bởi người tạo chữ ký và không được tiết lộ, trong khi khóa công khai có thể được chia sẻ với những người khác để xác thực chữ ký.
+Theo quy định của pháp luật và căn cứ vào Khoản 6 Điều 3 Nghị định 130/2018 NĐ-CP nêu rõ: 
 
-Khi người tạo chữ ký số ký một tài liệu điện tử, phần mềm tạo chữ ký số sẽ sử dụng khóa bí mật để tạo ra một mã hóa dữ liệu (digital signature) đính kèm vào tài liệu đó. Mã hóa dữ liệu này bao gồm các thông tin về chữ ký số, bao gồm cả khóa công khai của người tạo chữ ký. Khi người nhận tài liệu muốn xác thực chữ ký số, phần mềm xác thực chữ ký số sẽ sử dụng khóa công khai để giải mã mã hóa dữ liệu và kiểm tra tính toàn vẹn của tài liệu đó.
+“"Chữ ký số" là một dạng chữ ký điện tử được tạo ra bằng sự biến đổi một thông điệp dữ liệu sử dụng hệ thống mật mã không đối xứng, theo đó, người có được thông điệp dữ liệu ban đầu và khóa công khai của người ký có thể xác định được chính xác:
 
-Chữ ký số được sử dụng rộng rãi trong các ứng dụng như gxiao dịch thương mại điện tử, xác thực người dùng và chữ ký điện tử. Nó giúp đảm bảo tính toàn vẹn và xác thực của thông tin truyền qua mạng và giảm thiểu rủi ro về gian lận và giả mạo.
+a) Việc biến đổi nêu trên được tạo ra bằng đúng khóa bí mật tương ứng với khóa công khai trong cùng một cặp khóa;
+
+b) Sự toàn vẹn nội dung của thông điệp dữ liệu kể từ khi thực hiện việc biến đổi nêu trên.”
+
+Khi người tạo chữ ký số ký một tài liệu điện tử, phần mềm tạo chữ ký số sẽ sử dụng khóa bí mật để tạo ra một \textbf{mã hóa dữ liệu} đính kèm vào tài liệu đó. \textbf{mã hóa dữ liệu}  này bao gồm các thông tin về chữ ký số, bao gồm cả khóa công khai của người tạo chữ ký. Khi người nhận tài liệu muốn xác thực chữ ký số, phần mềm xác thực chữ ký số sẽ sử dụng khóa công khai để giải mã mã hóa dữ liệu và kiểm tra tính toàn vẹn của tài liệu đó.
+
+Chữ ký số được sử dụng rộng rãi trong các ứng dụng như giao dịch thương mại điện tử, xác thực người dùng và chữ ký điện tử. Nó giúp đảm bảo tính toàn vẹn và xác thực của thông tin truyền qua mạng và giảm thiểu rủi ro về gian lận và giả mạo.
 
 \subsubsection{Chữ ký số trên đường cong elliptic}
 
-Chữ ký số trên đường cong elliptic (Elliptic Curve Digital Signature Algorithm - ECDSA) là một phương pháp mã hóa và giải mã thông tin bằng cách sử dụng các điểm trên đường cong elliptic. ECDSA được sử dụng để đảm bảo tính bảo mật và an toàn trong các ứng dụng mật mã, như mã hóa thông tin, xác thực người dùng, và tạo chữ ký số.
+Chữ ký số trên đường cong elliptic (ECDSA) là một phương pháp mã hóa và giải mã thông tin bằng cách sử dụng các điểm trên đường cong elliptic. ECDSA được sử dụng để đảm bảo tính bảo mật và an toàn trong các ứng dụng mật mã, như mã hóa thông tin, xác thực người dùng, và tạo chữ ký số.
 
 Chữ ký số trên đường cong elliptic được sử dụng nhiều bởi bài toán logarit rời
 rạc cho đường cong elliptic khó hơn rất nhiều so với bài toán logarit rời rạc cho $F^*_p$.
@@ -451,7 +457,7 @@ $=u_1 + u_2 \times n_A \mod p$
 
 $\to u_1G + u_2P = u_1G + u_2 \times n_A G = (u_1+u_2 \times n_A)G = kG$
 
-Nếu chữ ký trên đúng thì $X=K$ hay $v=r$.
+Nếu chữ ký trên đúng thì $X=K$ hay $v=r$. \cite{ECDSA}
 
 
 
@@ -461,4 +467,4 @@ nhiều quốc gia trên thế giới, trong đó có Việt Nam. So với chữ
 chữ ký số giúp các cá nhân, doanh nghiệp thực hiện việc ký các tài 
 liệu được nhanh chóng, hiệu quả hơn. 
 
-Hiện nay ECDSA đang được sử dụng rộng rãi, đặc biệt trong công nghệ Blockchain.
+Hiện nay ECDSA đang được sử dụng rộng rãi, đặc biệt trong công nghệ Blockchain. 

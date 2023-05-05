@@ -3,7 +3,7 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
-% \usepackage{biblatex}
+
 \usepackage[vietnamese=nohyphenation]{hyphsubst}
 \usepackage[english, vietnamese]{babel}
 \usepackage{indentfirst} % indent first paragraph
@@ -13,16 +13,21 @@
 
 \usepackage{enumerate}
 \usepackage{amsmath}
-\usepackage{amsfonts}
+% \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{color}
 
 
+
+\usepackage{url}
+
 \usepackage{pgfplots}
+
 
 
 \usepackage{amsthm}
 \usepackage[unicode]{hyperref}
+
 \usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage{enumitem}
@@ -54,18 +59,25 @@
 \usepackage[nottoc]{tocbibind}
 \usepackage[autostyle]{csquotes}
 
-
+\urlstyle{rm}
 
 \usetikzlibrary{decorations}
 \usetikzlibrary{decorations.pathreplacing}
 \usetikzlibrary{decorations.pathreplacing,calligraphy}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{quotes}
+
 \usetikzlibrary{intersections}
 \usetikzlibrary{calc}
 \usetikzlibrary{arrows}
 
 \setstretch{1.3}
+
+\usepackage{caption}
+
+\captionsetup{
+font=Large
+}
 
 \pgfplotsset{compat=1.15}
 
@@ -143,6 +155,7 @@ innerleftmargin=5pt,innerrightmargin=5pt]{mybox}
 }
 
 
+
 \title{Blockchain trong truy xuất nguồn gốc thực phẩm}
 
 \author{
@@ -154,27 +167,28 @@ innerleftmargin=5pt,innerrightmargin=5pt]{mybox}
 
 \begin{document}
 \pagestyle{empty}
-% \input{Bia1.tex}
-% \input{Bia2.tex}
-% \input{Loicamon.tex}
-\input{Kyhieu.tex}
-% \input{Hinhve.tex}
+\input{0_Bia.tex}
+\input{1_Bia.tex}
+\input{2_Loicamon.tex}
+\input{3_Kyhieu.tex}
 
 
 \tableofcontents
 
 \newpage
 \pagestyle{plain}
-\input{section0.tex}
-\input{section1.tex}
-\input{section2.tex}
-\input{section3.tex}
-\input{section4.tex}
-\input{section5.tex}
-\input{section6.tex}
-\input{section7.tex}
 
-\bibliographystyle{acm}
-\bibliography{bib}
+\input{4_Modau.tex}
+\input{5_Hambam.tex}
+\input{6_matmaelliptic.tex}
+\input{7_merkle.tex}
+\input{8_blockchain.tex}
+\input{9_truyxuat.tex}
+\input{10_hyperledger.tex}
+\input{11_ungdung.tex}
+\input{12_bib.tex}
+\listoffigures
+\input{khoa-luan/13_dichchu}
+
 
 \end{document}      

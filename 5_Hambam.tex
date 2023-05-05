@@ -63,26 +63,27 @@ trường hợp đầu ra của SHA-256.
 Tấn công collision và tấn công preimage cũng khó thực hiện bởi vì:
 \begin{itemize}
     \item[-] Đầu vào có độ dài lớn: có thể lên tới $2^{256}$ bits.
-    \item[-] Không thể tái tạo đầu vào từ giá trị băm: Với thuật toán băm như SHA-256, việc tìm kiếm một đầu vào có cùng giá trị hash với một giá trị hash đã biết (tấn công preimage) cũng rất khó khăn. Điều này là do giá trị hash được tạo ra bằng cách áp dụng một hàm băm không thể đảo ngược (one-way function), tức là không thể tái tạo đầu vào ban đầu từ giá trị hash.
+    \item[-] Không thể tái tạo đầu vào từ giá trị băm: Với thuật toán băm như SHA-256, 
+    việc tìm kiếm một đầu vào có cùng giá trị hash với một giá trị hash đã biết (tấn công preimage) cũng rất khó khăn. Điều này là do giá trị hash được tạo ra bằng cách áp dụng một hàm băm không thể đảo ngược (one-way function), tức là không thể tái tạo đầu vào ban đầu từ giá trị hash.
 \end{itemize}
 
 Bởi vậy SHA-256 là một hàm băm an toàn, được sử dụng phổ biến trong các ứng dụng bảo mật và xác thực.
 
 \subsubsection{Các thức hoạt động SHA-256}
-SHA-256 bao gồm các bước sau:\cite{VIBLO}
+SHA-256 bao gồm các bước sau:
 
 \begin{itemize}
     \item[\textbf{Bước 1: }] Khởi tạo giá trị đầu vào cho hàm băm SHA-256.
         \item[1.1:] Chuyển dữ liệu đầu vào thành chuỗi nhị phân.
         \item[1.2:] Thêm 1 bit 1 vào cuối chuỗi nhị phân.
-        \item[1.3:] Nối 0 cho đến khi độ dài chuỗi nhị phân $\mod$ 512 = 64 .
+        \item[1.3:] Nối 0 cho đến khi độ dài $l$ của chuỗi nhị phân thoả mãn $ l \mod 512 = 64$.
         \item[1.4:] Độ dài của dữ liệu đầu vào được chuyển thành chuỗi nhị phân 64 bits, 
         sau đó được thêm vào cuối chuỗi nhị phân. 
-    \item[\textbf{Bước 2:}] Khởi tạo buffer (bộ đệm)
-        \item[2.1:] Tạo các giá trị băm từ H1 đến H8 biểu diễn cho 32 bit đầu tiên của
-        căn bậc hai của 8 số nguyên tố đầu tiên: 2, 3, 5, 7, 11, 13, 17, 19
-    \item[\textbf{Bước 3:}] Khởi tạo hằng số k.
-        \item[3.1:] Khởi tạo mảng chứa 64 hằng số tròn, mỗi giá trị $k_i (i = 0...63)$
+    \item[\textbf{Bước 2:}] Khởi tạo bộ đệm. \\
+        Tạo các giá trị băm từ $H_1$ đến $H_8$ là 32 bit đầu tiên của
+        căn bậc hai của 8 số nguyên tố đầu tiên: 2, 3, 5, 7, 11, 13, 17, 19.
+    \item[\textbf{Bước 3:}] Khởi tạo hằng số k. \\
+        Khởi tạo mảng chứa 64 hằng số tròn, mỗi giá trị $k_i (i = 0...63)$
         có độ dài 32 bits, ứng với 32 bits đầu tiên của căn bậc ba của 64 số nguyên tố 
         đầu tiên.
     \item[\textbf{Bước 4:}] Vòng lặp Chunk
@@ -141,6 +142,13 @@ SHA-256 bao gồm các bước sau:\cite{VIBLO}
     \end{lstlisting}
 \end{mybox}
 \item[\textbf{Bước 8:}] Tính toán giá trị băm cuối cùng bằng cách nối các chuỗi h0...h7
+\begin{mybox}
+    \begin{lstlisting}
+    result = h0 append h1 append h2 append h3 append h4 append h5 append h6 append h7
+    \end{lstlisting}
+\end{mybox}
+
+Sau 8 bước thì thuật toán SHA-256 đã hoàn thành việc tính toán giá trị băm của dữ liệu đầu vào. \cite{Sha256}
 \end{itemize}
 
 
