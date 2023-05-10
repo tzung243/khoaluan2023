@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2023.5.4)  10 MAY 2023 16:52
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2023.5.4)  10 MAY 2023 16:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/dunglethithuy/MyProjects/khoa-luan/main.tex
-(/Users/dunglethithuy/MyProjects/khoa-luan/main.tex
+**/Users/dunglethithuy/MyProjects/khoa-luan/Khoaluan.tex
+(/Users/dunglethithuy/MyProjects/khoa-luan/Khoaluan.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22>
 (/Users/dunglethithuy/Library/Application Support/MiKTeX/texmfs/install/tex/lat
@@ -1509,8 +1509,8 @@ Package csquotes Info: ... found 'babel' package.
 LaTeX Warning: Unused global option(s):
     [14pt].
 
-(main.aux)
-\openout1 = `main.aux'.
+(Khoaluan.aux)
+\openout1 = `Khoaluan.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 168.
 LaTeX Font Info:    ... okay on input line 168.
@@ -1578,9 +1578,9 @@ Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.18} (current compat level: 1.15).
 
 Package hyperref Info: Link coloring OFF on input line 168.
-(main.out) (main.out)
+(Khoaluan.out) (Khoaluan.out)
 \@outlinefile=\write4
-\openout4 = `main.out'.
+\openout4 = `Khoaluan.out'.
 
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
@@ -1674,11 +1674,11 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 8.
 (/Users/dunglethithuy/Library/Application Support/MiKTeX/texmfs/install/tex/lat
 ex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)) [2] (main.toc [3
+)) [2] (Khoaluan.toc [3
 
 ] [4])
 \tf@toc=\write5
-\openout5 = `main.toc'.
+\openout5 = `Khoaluan.toc'.
 
  [5] (4_Modau.tex
 Overfull \hbox (0.12335pt too wide) in paragraph at lines 25--30
@@ -1742,9 +1742,9 @@ oanh trong chaincode
 [35] [36] [37]
 File: images/flow-4.png Graphic file (type bmp)
 <images/flow-4.png>
- [38] [39]) (11_ungdung.tex [40]
+ [38]) (11_ungdung.tex [39]
 Chương IV.
-[41
+[40
 
 ]
 File: images/domain_model.png Graphic file (type bmp)
@@ -1753,42 +1753,42 @@ File: images/domain_model.png Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[42] [43]
+[41] [42]
 File: images/Smart_Contract.png Graphic file (type bmp)
 <images/Smart_Contract.png>
- [44]
+ [43]
 
-LaTeX Warning: Citation `Introduction' on page 45 undefined on input line 123.
+LaTeX Warning: Citation `Introduction' on page 44 undefined on input line 123.
 
-[45]) (12_bib.tex [46]
+[44]) (12_bib.tex [45]
 Overfull \hbox (10.06235pt too wide) in paragraph at lines 12--13
 [][]$[][][][][] [] [] [] [][][][] [] [][][][] [] [][][] [] [][][][][][][][][][]
 [][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][]$[]\TU/TimesNewRoman(0)/m/n/14 . 
  []
 
-) [47
+) [46
 
-] (main.lof)
+] (Khoaluan.lof)
 \tf@lof=\write6
-\openout6 = `main.lof'.
+\openout6 = `Khoaluan.lof'.
 
- (13_dichchu.tex [48
+ (13_dichchu.tex [47
 
-]) [49] (main.aux)
+]) [48] (Khoaluan.aux)
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B571E4982FDCDBCE41F86C905126C253;15553.
+Package rerunfilecheck Info: File `Khoaluan.out' has not changed.
+(rerunfilecheck)             Checksum: 4689BD5BA50E968AA6880122F9ECD778;15382.
  ) 
 Here is how much of TeX's memory you used:
  44437 strings out of 413442
- 1036873 string characters out of 2850008
+ 1036977 string characters out of 2850008
  1934018 words of memory out of 3000000
  63823 multiletter control sequences out of 15000+600000
  517941 words of font info for 90 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 100i,12n,104p,742b,2488s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 100i,12n,104p,746b,2488s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (56 pages).
+Output written on Khoaluan.pdf (55 pages).

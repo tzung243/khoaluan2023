@@ -96,7 +96,6 @@ tùy thuộc vào yêu cầu của từng ứng dụng blockchain cụ thể.
 Trình bày cụ thể về các cơ chế đồng thuận kết hợp trong Hyperledger Fabric, em sẽ trình bày 
 ở phần \textbf{Cơ chế đồng thuận}.
 \section{Mô hình Hyperledger Fabric}
-\subsection{Môi trường thực thi}
 \subsection{Thành phần hệ thống}
 \subsubsection{Nút}
 Các nút trong hệ thống này đảm nhận các vai trò khác nhau. Mỗi loại nút có quyền truy cập và vai trò khác
@@ -109,10 +108,12 @@ Có 3 vai trò nút trong hệ thống:
     dữ liệu trong mạng blockchain. Mỗi nút thành viên có một bản sao của sổ cái và có 
     thể thực hiện các chức năng như giao tiếp với các nút khác, đảm nhận xác thực và xử lý 
     giao dịch, thực hiện các chaincode (smart contract), cập nhật trạng thái của 
-    sổ cái, và đồng bộ dữ liệu với các nút thành viên khác. Có hai loại nút thành viên khác nhau: Chứng thực (Endorsers)và Cam kết (Committers).
+    sổ cái, và đồng bộ dữ liệu với các nút thành viên khác.
+    
+    Có hai loại nút thành viên khác nhau: người chứng thực (Endorsers) và người cam kết (Committers).
         \begin{itemize}
-            \item[+] Chứng thực (Endorsers): Mô phỏng và xác minh tính hợp lệ giao dịch.
-            \item[+] Cam kết (Committers): Xác minh và xác nhận kết quả giao dịch trước khi thêm giao dịch vào blockchain.
+            \item[+] Người chứng thực: Mô phỏng, thực thi logic kinh doanh trong chaincode và xác minh tính hợp lệ giao dịch.
+            \item[+] Người cam kết: Xác minh và xác nhận kết quả giao dịch trước khi thêm giao dịch vào blockchain.
         \end{itemize}
     \item[-] Người đặt hàng (Orderer): vai trò là kênh liên lạc trung tâm cho mạng lưới, 
     đảm bảo các thành viên sẽ nhận chính 
@@ -133,14 +134,14 @@ một phần mềm các định một hoặc nhiều nội dung. Nó thực thi 
 để đọc và thay đổi các cặp giá trị key-value được lưu trữ trong sổ cái. 
 
 Một giao dịch đề xuất thay đổi được gửi đến các nút thành viên trong mạng blockchain, và các 
-thành viên sử dụng chaincode để kiểm tra và xác minh giao dịch này. Nếu giao dịch thoả mãn các quy 
+thành viên thực thi chaincode để kiểm tra và xác minh giao dịch này. Nếu giao dịch thoả mãn các quy 
 tắc được định nghĩa bởi chaincode, giao dịch sẽ được thực thi và kết 
 quả được thêm cho sổ cái được lưu tất cả các nút thành viên.
 
 \subsubsection{Sổ cái}
 Mỗi sổ cái là một bản sao của toàn bộ blockchain và được lưu trữ trên mỗi nút thành viên trong mạng.
 Hệ thống có thể lưu trữ nhiều sổ cái khác nhau, mỗi sổ cái được lưu trữ trên một channel riêng biệt. 
-Trong Hyperledger Fabric, một sổ cái bao gồm 2 phần riêng biệt:
+Trong Hyperledger Fabric, một sổ cái bao gồm 2 phần:
 
 \begin{itemize}
     \item[-] World state ledger: Lưu trữ trạng thái hiện tại của tất cả các 
@@ -152,6 +153,29 @@ Trong Hyperledger Fabric, một sổ cái bao gồm 2 phần riêng biệt:
     lưu trữ toàn bộ lịch sử các giao dịch dưới dạng chuỗi các khối. Đây là
     một khối bất biến, không thể sửa đổi.
 \end{itemize}
+\subsubsection{Dịch vụ đặt hàng}
+Nút đặt hàng thực hiện việc đặt hàng giao dịch, nút này 
+cùng với các nút đặt hàng khác tạo thành một dịch vụ đặt hàng.
+Dịch vụ đặt hàng cung cấp một kênh truyền thông cho 
+các nút trong mạng để phát sóng các tin nhắn chứa các giao 
+dịch, đồng bộ hoá các giao dịch và đảm bảo tính nhất quán 
+của trạng thái blockchain.
+Nút đặt hàng cũng thực thi kiểm soát truy cập cơ bản đối với 
+các kênh, hạn chế người có thể đọc và ghi dữ liệu vào chúng 
+cũng như ai có thể định cấu hình chúng.
+
+Khi khách hàng yêu cầu thêm một giao dịch trên blockchain, 
+nó được đưa vào một gói tin và phát sóng đến Dịch vụ đặt 
+hàng. Dịch vụ đặt hàng sẽ đảm bảo rằng các giao dịch được 
+xử lý và đóng gói thành các khối theo một thứ tự nhất định 
+và phát sóng đến tất cả các nút trong mạng. Các nút sau đó 
+sẽ xác nhận và thêm khối này vào trạng thái blockchain của 
+mình nếu khối đấy thoả mãn.
+
+Trong dịch vụ đặt hàng sử dụng cơ chế đồng thuận Kafka Orderering Service (Kafka) để khi một 
+khối mới được tạo ra bởi Kafka-based Ordering Service, nó sẽ được phát sóng đến tất cả các nút trong mạng. Các nút trong mạng sau đó sẽ xác nhận và kiểm tra tính hợp lệ của các giao dịch trong khối mới này.
+
+
 \subsubsection{Kênh}
 
 Trong hệ thống Hyperledger Fabric, kêng là một tính năng quan trọng để cung cấp cách thức 
@@ -169,9 +193,26 @@ của kênh đó và không ảnh hưởng đến các kênh khác.
 
 Một thành viên có thể tham gia cùng lúc nhiều kênh và lưu trữ tất cả các sổ cái của các kênh.
 
-\subsection{Xác thực}
-\subsection{Cơ chế đồng thuận}
+% \subsection{Cơ chế đồng thuận}
 
+% Trong Hyperledger Fabric, một giao dịch được xem là hợp lệ nếu nó đi qua 3 bước:
+
+% \begin{itemize}
+%     \item Chứng thực giao dịch
+%     \item Đặt hàng
+%     \item Xác nhận và cam kết
+% \end{itemize}
+
+% Cơ chế đồng thuận là việc kết hợp ba bước trên để tạo ra một kết quả cuối cùng
+% là thêm hoặc không thêm khối chứa các giao dịch vào blockchain.
+
+% Cơ chế đồng thuận phủ khắp và bao gồm toàn bộ quá trình giao dịch. Các nút 
+% có nhiệm vụ khác nhau sẽ có vai trò khác nhau trong quá trình đồng thuận.
+
+% Hyperledger Fabric sử dụng chủ yếu 2 cơ chế đồng thuận là Kafka và PBFT.
+
+% PBFT (Practical Byzantine Lỗi Sức chịu đựng) có thể cung cấp cơ chế để các bản sao tệp giao tiếp với nhau nhằm giữ cho mỗi bản sao nhất quán, ngay cả trong trường hợp bị hỏng. 
+% PBFT là một thuật toán không phân nhánh dựa trên người lãnh đạo. Nó yêu cầu tất cả các nút phải được kết nối với tất cả các nút khác. Tất cả các nút đều được biết và thuật toán không cho phép các nút ngẫu nhiên tham gia nhóm ngang hàng. Thuật toán hỗ trợ tới một phần ba số nút bị lỗi. Miễn là không quá một phần ba số nút bị lỗi, thì có thể đạt được sự đồng thuận.
 \subsection{Luồng giao dịch}
 
 Luồng giao dịch có các bước sau:
