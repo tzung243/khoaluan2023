@@ -58,7 +58,8 @@
 \contentsline {subsubsection}{\numberline {2.1.4}Sổ cái}{36}{subsubsection.3.2.1.4}%
 \contentsline {subsubsection}{\numberline {2.1.5}Dịch vụ đặt hàng}{37}{subsubsection.3.2.1.5}%
 \contentsline {subsubsection}{\numberline {2.1.6}Kênh}{37}{subsubsection.3.2.1.6}%
-\contentsline {subsection}{\numberline {2.2}Luồng giao dịch}{38}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {2.2}Cơ chế đồng thuận}{38}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {2.3}Luồng giao dịch}{38}{subsection.3.2.3}%
 \contentsline {section}{\numberline {3}Mạng Blockchain Hyperledge Fabric}{39}{section.3.3}%
 \contentsline {chapter}{\numberline {IV} Truy xuất nguồn gốc thực phẩm dựa trên công nghệ Blockchain}{40}{chapter.4}%
 \contentsline {section}{\numberline {1}Đặt vấn đề}{40}{section.4.1}%

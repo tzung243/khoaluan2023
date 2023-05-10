@@ -193,7 +193,7 @@ của kênh đó và không ảnh hưởng đến các kênh khác.
 
 Một thành viên có thể tham gia cùng lúc nhiều kênh và lưu trữ tất cả các sổ cái của các kênh.
 
-% \subsection{Cơ chế đồng thuận}
+\subsection{Cơ chế đồng thuận}
 
 % Trong Hyperledger Fabric, một giao dịch được xem là hợp lệ nếu nó đi qua 3 bước:
 
@@ -224,24 +224,26 @@ Luồng giao dịch có các bước sau:
 
 
 \begin{itemize}
-    \item[\textbf{1.}] Client gửi một giao dịch đến các endorsing peer node. Endorsing peer node là 
-    một nút trong mạng blockchain Hyperledger Fabric, được sử dụng để chứng nhận tính hợp 
+    \item[\textbf{1.}] Khách gửi một giao dịch đến các  nút chứng thực. Nút chứng thực được sử dụng để chứng nhận tính hợp 
     lệ của một giao dịch trước khi nó được gửi đến các nút khác để xác nhận và cam kết trên 
     sổ cái. Nó không lưu trữ trực tiếp các thông tin liên quan đến giao dịch hoặc sổ cái.
-    \item[\textbf{2.}] Khi một giao dịch được gửi đến endorsing peer, nó sẽ thực hiện một số hoạt 
-    động để chứng nhận tính hợp lệ của giao dịch đó. Đầu tiên, endorsing peer node sẽ kiểm 
+    \item[\textbf{2.}] Khi một giao dịch được gửi đến nút chứng thực, nó sẽ thực hiện một số hoạt 
+    động để chứng nhận tính hợp lệ của giao dịch đó. Đầu tiên, nó sẽ kiểm 
     tra xác thực của người gửi giao dịch và xác định xem họ có quyền thực hiện giao dịch hay 
-    không. Sau đó, endorsing peer sẽ thực hiện việc thực thi các hàm chaincode để xác 
+    không. Sau đó, nó sẽ thực hiện việc thực thi các hàm chaincode để xác 
     định xem giao dịch có hợp lệ hay không. Với mỗi một lệnh được thực hiện thì ta ghi lại 
-    trạng thái đọc và ghi của dữ liệu,gọi là tập ReadWrite RW
-    Nếu endorsing peer thấy là giao dịch hợp lệ, nó sẽ tạo một chữ ký bảo lãnh (endorsement signature) và gửi lại cho người 
+    trạng thái đọc và ghi của dữ liệu,gọi là tập ReadWrite (RW)
+    Nếu nút này thấy là giao dịch hợp lệ, nó sẽ tạo một chữ ký bảo lãnh và gửi lại cho người 
     gửi giao dịch. 
-    \item[\textbf{3.}] Khi một giao dịch được chứng nhận hợp lệ, người gửi giao dịch sẽ gửi giao dịch
-    đó đến các ordering service. Các ordering node sẽ xác định thứ tự của các block dựa trên 
-    chữ ký bảo lãnh của các endorsing peer và sắp xếp các giao dịch vào các khối tương 
-    ứng. Sau đó nó gửi các block đến cac peer.
-    \item[\textbf{4.}] Committing peer sẽ xác nhận lại các chính sách xác thực một lần nữa. 
-    Đồng thời nó kiểm tra hiệu lực của tập RW. Việc xác nhận giao dịch sẽ được lưu vào World- state, còn sổ cái sẽ lưu lại các giao dịch. Khi này, sổ cái được đồng bộ hóa.
+    \item[\textbf{3.}] Khi một giao dịch được chứng nhận hợp lệ, khách sẽ gửi giao dịch
+    đó đến các ordering service. Người đặt hàng sẽ xác định thứ tự của các khối dựa trên 
+    chữ ký bảo lãnh của nút chứng thực và sắp xếp các giao dịch vào các khối tương 
+    ứng. Sau đó nó gửi các khối đến toàn bộ nút thành viên.
+    \item[\textbf{4.}] Người cam kết sẽ xác nhận lại các chính sách xác thực một lần nữa. 
+    Đồng thời nó kiểm tra hiệu lực của tập RW. Việc xác nhận giao dịch sẽ được lưu vào World- state, còn sổ cái sẽ lưu lại các giao dịch. 
+    Khi này, sổ cái được đồng bộ hóa.
+    \item[\textbf{4.} Người cam kết sẽ thông báo lại cho ứng dụng là trạng thái của giao dịch. 
+    Ứng dụng sẽ được thông báo bởi các thành viên trong kênh.]
 \end{itemize}
 
 \section{Mạng Blockchain Hyperledge Fabric}

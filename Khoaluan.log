@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2023.5.4)  10 MAY 2023 16:54
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2023.5.4)  10 MAY 2023 17:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1780,7 +1780,7 @@ Overfull \hbox (10.06235pt too wide) in paragraph at lines 12--13
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Khoaluan.out' has not changed.
-(rerunfilecheck)             Checksum: 4689BD5BA50E968AA6880122F9ECD778;15382.
+(rerunfilecheck)             Checksum: B571E4982FDCDBCE41F86C905126C253;15553.
  ) 
 Here is how much of TeX's memory you used:
  44437 strings out of 413442
