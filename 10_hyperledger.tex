@@ -60,7 +60,7 @@ trong việc quản lý danh tính và quyền truy cập trong Hyperledger Fabr
     người dùng đảm bảo rằng với mỗi người dùng có nhiệm vụ khác nhau thì quyền truy cập trong
     hệ thống là khác nhau.
     \item[-] Quản lý chứng chỉ: cung cấp tính năng quản lý chứng chỉ để quản lý các chứng chỉ
-    và chứng thư số, để bảo mật và xác thực người dùng. 
+    và chứng thư số, để bảo mật và xác thực người dùng. \cite{hyperledger}
 
 \end{itemize}
 \subsection{Độc lập với tiền tiện tử}
@@ -110,10 +110,10 @@ Có 3 vai trò nút trong hệ thống:
     giao dịch, thực hiện các chaincode (smart contract), cập nhật trạng thái của 
     sổ cái, và đồng bộ dữ liệu với các nút thành viên khác.
     
-    Có hai loại nút thành viên khác nhau: người chứng thực (Endorsers) và người cam kết (Committers).
+    Có hai loại nút thành viên khác nhau: người tán thành (Endorsers) và người cam kết (Committers).
         \begin{itemize}
-            \item[+] Người chứng thực: Mô phỏng, thực thi logic kinh doanh trong chaincode và xác minh tính hợp lệ giao dịch.
-            \item[+] Người cam kết: Xác minh và xác nhận kết quả giao dịch trước khi thêm giao dịch vào blockchain.
+            \item[+] Người tán thành: Mô phỏng, thực thi logic kinh doanh trong chaincode và xác minh tính hợp lệ giao dịch.
+            \item[+] Người cam kết: Xác minh và xác nhận kết quả giao dịch trước khi thêm giao dịch vào blockchain. \cite{hyperledger1}
         \end{itemize}
     \item[-] Người đặt hàng (Orderer): vai trò là kênh liên lạc trung tâm cho mạng lưới, 
     đảm bảo các thành viên sẽ nhận chính 
@@ -162,7 +162,7 @@ dịch, đồng bộ hoá các giao dịch và đảm bảo tính nhất quán
 của trạng thái blockchain.
 Nút đặt hàng cũng thực thi kiểm soát truy cập cơ bản đối với 
 các kênh, hạn chế người có thể đọc và ghi dữ liệu vào chúng 
-cũng như ai có thể định cấu hình chúng.
+cũng như ai có thể định cấu hình chúng. \cite{hyperledger1}
 
 Khi khách hàng yêu cầu thêm một giao dịch trên blockchain, 
 nó được đưa vào một gói tin và phát sóng đến Dịch vụ đặt 
@@ -195,24 +195,63 @@ Một thành viên có thể tham gia cùng lúc nhiều kênh và lưu trữ t�
 
 \subsection{Cơ chế đồng thuận}
 
-% Trong Hyperledger Fabric, một giao dịch được xem là hợp lệ nếu nó đi qua 3 bước:
+Đồng thuận là quá trình mà một mạng lưới các nút cung cấp thứ tự giao dịch được đảm 
+bảo và xác thực khối giao dịch. Cơ chế đồng thuận cung cấp các chức năng chính sau: 
 
-% \begin{itemize}
-%     \item Chứng thực giao dịch
-%     \item Đặt hàng
-%     \item Xác nhận và cam kết
-% \end{itemize}
+\begin{itemize}
+    \item[-] Xác nhận tính chính xác của tất cả giao dịch trong một khối được đề xuất.
+    \item[-] Đồng thuận về sổ cái giữa tất cả các nút thành viên.
+    \item[-] Dùng hợp đồng thông minh để xác minh tính chính xác của từng giao dịch đã được sắp xếp trong một khối.
+\end{itemize} 
 
-% Cơ chế đồng thuận là việc kết hợp ba bước trên để tạo ra một kết quả cuối cùng
-% là thêm hoặc không thêm khối chứa các giao dịch vào blockchain.
+Sự đồng thuận trong Hyperledger Fabric được chia làm 3 giai đoạn:
 
-% Cơ chế đồng thuận phủ khắp và bao gồm toàn bộ quá trình giao dịch. Các nút 
-% có nhiệm vụ khác nhau sẽ có vai trò khác nhau trong quá trình đồng thuận.
+\begin{itemize}
+    \item[-] Xác nhận: Nút thành viên có vai trò tán thành xác nhận giao dịch hợp lệ bằng cách ký chữ ký bảo lãnh.
+    \item[-] Đặt hàng: Chấp nhận các giao dịch được xác nhận và đồng ý về thứ tự được thêm vào sổ cái.
+    \item[-] Xác thực: kiểm tra một khối các giao dịch đã được sắp xếp và xác minh tính chính xác của kết quả, 
+    bao gồm kiểm tra chính sách tán thành và tránh tình trạng trùng lặp. \cite{consensus}
+\end{itemize}
 
-% Hyperledger Fabric sử dụng chủ yếu 2 cơ chế đồng thuận là Kafka và PBFT.
+Cơ chế đồng thuận phủ khắp và bao gồm toàn bộ quá trình giao dịch. Các nút 
+có nhiệm vụ khác nhau sẽ có vai trò khác nhau trong quá trình đồng thuận.
 
-% PBFT (Practical Byzantine Lỗi Sức chịu đựng) có thể cung cấp cơ chế để các bản sao tệp giao tiếp với nhau nhằm giữ cho mỗi bản sao nhất quán, ngay cả trong trường hợp bị hỏng. 
-% PBFT là một thuật toán không phân nhánh dựa trên người lãnh đạo. Nó yêu cầu tất cả các nút phải được kết nối với tất cả các nút khác. Tất cả các nút đều được biết và thuật toán không cho phép các nút ngẫu nhiên tham gia nhóm ngang hàng. Thuật toán hỗ trợ tới một phần ba số nút bị lỗi. Miễn là không quá một phần ba số nút bị lỗi, thì có thể đạt được sự đồng thuận.
+Hyperledger Fabric sử dụng chủ yếu 2 cơ chế đồng thuận là Kafka Ordering Service và Khả năng chịu lỗi
+Byzantine.
+
+\subsubsection{Kafka Ordering Service}
+Kafka Ordering Service là một cơ chế quan trọng trong Hyperledger Fabric được sử dụng
+để xác định thứ tự của các giao dịch trước khi được thêm vào blockchain. Khi một giao 
+dịch mới được tạo ra, nó sẽ được đưa vào hàng đợi để chờ xác nhận. Các nút trong mạng 
+sẽ lấy các giao dịch từ hàng đợi, kiểm tra tính hợp lệ của chúng, và đưa ra quyết 
+định về thứ tự của các giao dịch, sau đó chúng được thêm vào blockchain theo thứ tự 
+đã được xác định.
+
+Việc sử dụng Kafka Ordering Service giúp đảm bảo tính toàn vẹn và độ tin cậy của dữ 
+liệu trong mạng Hyperledger Fabric. Tất cả các nút trong mạng đều nhận thông tin về 
+các giao dịch mới nhất thông qua hàng đợi, đảm bảo rằng tất cả các nút trong mạng 
+đều chia sẻ cùng một sổ cái. Nó cũng cho phép mạng mở rộng và linh hoạt hơn, vì các 
+nút có thể được thêm vào hoặc loại bỏ khỏi mạng mà không ảnh hưởng đến tính toàn vẹn 
+của dữ liệu.
+
+\subsubsection{Khả năng chịu lỗi Byzantine (PBFT)}
+PBFT là một cơ chế đồng thuận được sử dụng để đảm bảo tính toàn vẹn và độ tin cậy 
+của dữ liệu trong mạng bằng cách xác định tính hợp lệ của các giao dịch trong quá 
+trình đồng thuận.
+
+Khi một giao dịch được gửi đến mạng Hyperledger Fabric, PBFT sẽ được sử dụng để 
+kiểm tra và xác định tính hợp lệ của giao dịch trước khi được thêm vào blockchain. 
+Các nút trong mạng sẽ thực hiện các vòng lặp đồng thuận để đưa ra quyết định về tính 
+hợp lệ của một giao dịch dựa trên sự đồng thuận của hầu hết các nút trong mạng.
+
+Quá trình đồng thuận của PBFT bao gồm các bước như sau:
+\begin{itemize}
+    \item[-] Gửi yêu cầu cho các nút khác trong mạng để thực hiện đồng thuận.
+    \item[-] Thực hiện vòng lặp đồng thuận để đưa ra quyết định về tính hợp lệ của một giao dịch.
+    \item[-] Gửi thông báo về quyết định đồng thuận cho các nút khác trong mạng.
+    \item[-] Nếu nút hợp lệ thì ký chữ ký bảo lãnh.  
+\end{itemize}
+
 \subsection{Luồng giao dịch}
 
 Luồng giao dịch có các bước sau:
@@ -224,10 +263,10 @@ Luồng giao dịch có các bước sau:
 
 
 \begin{itemize}
-    \item[\textbf{1.}] Khách gửi một giao dịch đến các  nút chứng thực. Nút chứng thực được sử dụng để chứng nhận tính hợp 
+    \item[\textbf{1.}] Khách gửi một giao dịch đến các  nút tán thành. Nút tán thành được sử dụng để chứng nhận tính hợp 
     lệ của một giao dịch trước khi nó được gửi đến các nút khác để xác nhận và cam kết trên 
     sổ cái. Nó không lưu trữ trực tiếp các thông tin liên quan đến giao dịch hoặc sổ cái.
-    \item[\textbf{2.}] Khi một giao dịch được gửi đến nút chứng thực, nó sẽ thực hiện một số hoạt 
+    \item[\textbf{2.}] Khi một giao dịch được gửi đến nút tán thành, nó sẽ thực hiện một số hoạt 
     động để chứng nhận tính hợp lệ của giao dịch đó. Đầu tiên, nó sẽ kiểm 
     tra xác thực của người gửi giao dịch và xác định xem họ có quyền thực hiện giao dịch hay 
     không. Sau đó, nó sẽ thực hiện việc thực thi các hàm chaincode để xác 
@@ -237,14 +276,32 @@ Luồng giao dịch có các bước sau:
     gửi giao dịch. 
     \item[\textbf{3.}] Khi một giao dịch được chứng nhận hợp lệ, khách sẽ gửi giao dịch
     đó đến các ordering service. Người đặt hàng sẽ xác định thứ tự của các khối dựa trên 
-    chữ ký bảo lãnh của nút chứng thực và sắp xếp các giao dịch vào các khối tương 
+    chữ ký bảo lãnh của nút tán thành và sắp xếp các giao dịch vào các khối tương 
     ứng. Sau đó nó gửi các khối đến toàn bộ nút thành viên.
     \item[\textbf{4.}] Người cam kết sẽ xác nhận lại các chính sách xác thực một lần nữa. 
     Đồng thời nó kiểm tra hiệu lực của tập RW. Việc xác nhận giao dịch sẽ được lưu vào World- state, còn sổ cái sẽ lưu lại các giao dịch. 
     Khi này, sổ cái được đồng bộ hóa.
     \item[\textbf{4.}] Người cam kết sẽ thông báo lại cho ứng dụng là trạng thái của giao dịch. 
     
-    Ứng dụng sẽ được thông báo bởi các thành viên trong kênh.
+    Ứng dụng sẽ thông báo cho các thành viên trong kênh. \cite{hyperledger}
 \end{itemize}
 
-\section{Mạng Blockchain Hyperledge Fabric}
+\section{Cấu trúc mạng Fabric}
+
+Mạng Blockchain là một cơ sở hạ tầng kỹ thuật cung cấp sổ cái và hợp đồng thông minh (chaincode) cho các ứng dụng. 
+Chaincode được sử dụng để tạo ra các giao dịch sau đó phân phối cho nút thành viên trong mạng. Người dùng ứng dụng
+có thể là khách hàng hoặc quản trị viên của mạng blockchain.
+
+Các tổ chức kết hợp với nhau để tạo thành một kênh trong đó các giao dịch được gọi 
+trên chaincode và trong đó các quyền được xác định bởi một bộ chính sách được đồng ý 
+khi kênh được định cấu hình ban đầu. Hơn nữa, các chính sách có thể thay đổi theo 
+thời gian tùy thuộc vào sự đồng ý của các tổ chức.
+
+Đây là một ví dụ mạng cơ bản: 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/network.png}
+    \caption{Mạng Blockchain Hyperledger Fabric }
+\end{figure}
+

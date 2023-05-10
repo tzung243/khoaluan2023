@@ -3,10 +3,19 @@
 \subsection{Hàm băm}
 \subsubsection{Tổng quan về hàm băm}
 Hàm băm là một thuật toán được sử dụng để biến đổi dữ liệu đầu vào thành một chuỗi ngắn hơn và đại diện
-cho dữ liệu đó, được gọi là giá trị băm. Giá trị đầu vào của hàm băm là tuỳ ý nhưng đầu ra của hàm băm là một giá trị 
+cho dữ liệu đó, được gọi là giá trị băm.
+Giá trị băm $h$ được tạo bởi hàm $H$ có dạng
+$$h = H(M)$$ 
+trong đó $M$ là thông báo có độ dài không cố định và $H(M)$ là giá trị băm có độ dài cố 
+định. Giá trị băm được thêm vào tin nhắn tại nguồn tại thời điểm tin nhắn được giả đ
+ịnh hoặc được biết là chính xác. Người nhận xác thực tin nhắn đó bằng cách tính toán 
+lại giá trị băm.\cite{hashfunction}
+
+Giá trị đầu vào của hàm băm là tuỳ ý nhưng đầu ra của hàm băm là một giá trị 
 cố định sẵn, được gọi là độ dài băm. Độ dài băm có thể là 128, 256 hoặc 512 bit.
 Giá trị băm là duy nhất cho mỗi dữ liệu đầu vào và không thể dễ dàng được tái tạo ngược lại dữ liệu gốc ban đầu. Điều này đảm bảo tính toàn vẹn và 
 bảo mật của dữ liệu.
+
 
 Hàm băm có các tính chất để đảm bảo tính toàn vẹn và bảo mật của dữ liệu:
 \begin{itemize}

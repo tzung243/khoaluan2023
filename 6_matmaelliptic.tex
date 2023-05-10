@@ -153,7 +153,7 @@ Giá trị này là khóa mà cả hai cùng chấp nhận sử dụng.
 
 Kẻ tấn công biết được giá trị $p,g,g^a \mod p, g^b \mod p $ nhưng không 
 tính toán được khoá $k = g^{ab} \mod p$. Đây là một bài toán khó giải 
-trong thời gian đa thức. \cite{Diffie_Hellman}
+trong thời gian đa thức. \cite{elliptic}
 
 \subsection{Mật mã đường cong elliptic}
 \subsubsection{Khái niệm đường cong elliptic}
@@ -162,7 +162,7 @@ Một \textit{đường cong Elliptic} là tập nghiệm của một phương t
 $$Y^2 = X^3 + AX + B$$ cùng với một điểm $\mathcal{O}$ ở vô cùng, trong đó hằng số $A$ và $B$ thỏa mãn
 $$ 4A^3 + 27B^2 \neq 0$$
 Các phương trình thuộc loại này được gọi là \textit{phương trình Weierstrass}. 
-Đồ thị của đường cong elliptic có dạng đối xứng qua trục hoành. \cite{Elliptic_Curve}
+Đồ thị của đường cong elliptic có dạng đối xứng qua trục hoành. \cite{elliptic}
 
 Điểm $\mathcal{O}$ là điểm đặc biệt của đường cong elliptic, nó không thuộc đường cong.
 Khi ta cộng điểm $P$ với một điểm $P'$ đối xứng với $P$ qua đường cong thì ta có:
@@ -457,7 +457,7 @@ $=u_1 + u_2 \times n_A \mod p$
 
 $\to u_1G + u_2P = u_1G + u_2 \times n_A G = (u_1+u_2 \times n_A)G = kG$
 
-Nếu chữ ký trên đúng thì $X=K$ hay $v=r$. \cite{ECDSA}
+Nếu chữ ký trên đúng thì $X=K$ hay $v=r$. \cite{elliptic}
 
 
 

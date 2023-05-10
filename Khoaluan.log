@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2023.5.4)  10 MAY 2023 17:26
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2023.5.4)  11 MAY 2023 03:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1693,39 +1693,52 @@ Chương I.
 ] [4] [5]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 100.
+(mdframed)              on input line 109.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 113.
+(mdframed)              on input line 122.
  [6]
+Package mdframed Info: Not enough space on this page on input line 139.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 133.
+(mdframed)              on input line 142.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 146.
+(mdframed)              on input line 155.
 ) (6_matmaelliptic.tex [7]
 File: images/encrypt-decrypt.png Graphic file (type bmp)
 <images/encrypt-decrypt.png>
  [8] [9] [10] [11] [12] [13] [14]
-[15] [16] [17]) (7_merkle.tex
+[15]
+
+LaTeX Warning: Citation `Elliptic_Curve' on page 16 undefined on input line 380
+.
+
+[16] [17]) (7_merkle.tex
 File: images/Merkle_Tree.png Graphic file (type bmp)
 <images/Merkle_Tree.png>
- [18]
-File: images/merkle-tree-8levels.png Graphic file (type bmp)
-<images/merkle-tree-8levels.png>
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[19]) (8_blockchain.tex [20]
+[18] [19]
+File: images/merkle-tree-8levels.png Graphic file (type bmp)
+<images/merkle-tree-8levels.png>
+ [20]) (8_blockchain.tex
 File: images/He_thong_tap_chung:phi_tap_chung.png Graphic file (type bmp)
 <images/He_thong_tap_chung:phi_tap_chung.png>
- [21] [22]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[21] [22]
 File: images/Cau_truc_khoi.png Graphic file (type bmp)
 <images/Cau_truc_khoi.png>
- [23] [24] [25] [26] [27])
-(9_truyxuat.tex [28]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[23] [24] [25] [26] [27]) (9_truyxuat.tex [28]
 Chương II.
 [29
 
@@ -1733,18 +1746,19 @@ Chương II.
 Chương III.
 [32
 
-] [33] [34]
-Overfull \hbox (1.84021pt too wide) in paragraph at lines 115--116
-[]\TU/TimesNewRoman(0)/m/n/14 Người chứng thực: Mô phỏng, thực thi logic kinh d
-oanh trong chaincode
- []
-
-[35] [36] [37]
+] [33] [34] [35] [36] [37] [38]
 File: images/flow-4.png Graphic file (type bmp)
 <images/flow-4.png>
- [38]) (11_ungdung.tex [39]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[39] [40]
+File: images/network.png Graphic file (type bmp)
+<images/network.png>
+) (11_ungdung.tex [41]
 Chương IV.
-[40
+[42
 
 ]
 File: images/domain_model.png Graphic file (type bmp)
@@ -1753,42 +1767,36 @@ File: images/domain_model.png Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[41] [42]
+[43] [44]
 File: images/Smart_Contract.png Graphic file (type bmp)
 <images/Smart_Contract.png>
- [43]
+ [45]
 
-LaTeX Warning: Citation `Introduction' on page 44 undefined on input line 123.
+LaTeX Warning: Citation `Introduction' on page 46 undefined on input line 123.
 
-[44]) (12_bib.tex [45]
-Overfull \hbox (10.06235pt too wide) in paragraph at lines 12--13
-[][]$[][][][][] [] [] [] [][][][] [] [][][][] [] [][][] [] [][][][][][][][][][]
-[][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][]$[]\TU/TimesNewRoman(0)/m/n/14 . 
- []
-
-) [46
+[46]) (12_bib.tex [47]) [48
 
 ] (Khoaluan.lof)
 \tf@lof=\write6
 \openout6 = `Khoaluan.lof'.
 
- (13_dichchu.tex [47
+ (13_dichchu.tex [49
 
-]) [48] (Khoaluan.aux)
+]) [50]
+(Khoaluan.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Khoaluan.out' has not changed.
-(rerunfilecheck)             Checksum: B571E4982FDCDBCE41F86C905126C253;15553.
+(rerunfilecheck)             Checksum: 33379FA201013C4FA00921744A4D199B;15957.
  ) 
 Here is how much of TeX's memory you used:
- 44437 strings out of 413442
- 1036977 string characters out of 2850008
- 1934018 words of memory out of 3000000
- 63823 multiletter control sequences out of 15000+600000
+ 44445 strings out of 413442
+ 1037065 string characters out of 2850008
+ 1922018 words of memory out of 3000000
+ 63830 multiletter control sequences out of 15000+600000
  517941 words of font info for 90 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  100i,12n,104p,746b,2488s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Khoaluan.pdf (55 pages).
+Output written on Khoaluan.pdf (57 pages).
