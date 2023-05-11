@@ -1,4 +1,5 @@
 \chapter{ Hyperledger Fabric}
+\label{chap:hyper}
 \section{Giới thiệu Hyperledger Fabric }
 Hyperledger Fabric là một nền tảng blockchain phân tán được phát triển bởi Linux. Nó 
 cung cấp một giải pháp cho các tổ chức và doanh nghiệp để triển khai các ứng dụng blockchain 
@@ -81,20 +82,12 @@ các thành viên trong mạng sẽ thẩm định và chấp nhận nó trướ
 
 \subsection{Cơ chế đồng thuận kết hợp}
 Hyperledger Fabric là một nền tảng blockchain dành cho doanh nghiệp, có khả năng hỗ trợ 
-nhiều cơ chế đồng thuận khác nhau như Proof of Work (PoW), Practical Byzantine Fault 
-Tolerance (PBFT) và Kafka Ordering Service. Việc sử dụng cơ chế đồng thuận kết hợp trong 
+nhiều cơ chế đồng thuận khác nhau như Proof of Work (PoW), Crash fault tolerant (CFT), Byzantine fault tolerant (BFT). Việc sử dụng cơ chế đồng thuận kết hợp trong 
 Hyperledger Fabric được thực hiện nhằm đảm bảo tính toàn vẹn và bảo mật của hệ thống. 
 
-PBFT được sử dụng để đồng thuận giữa các thành viên trong mạng, đảm bảo rằng các giao dịch 
-được xác nhận và thêm vào blockchain chỉ khi được chấp thuận bởi đa số các thành viên trong mạng. 
-Bên cạnh đó, Kafka Ordering Service được sử dụng để quản lý thứ tự của các block mới được 
-thêm vào blockchain, tránh xảy ra các xung đột về thứ tự của các block. 
+Các cơ chế đồng thuận có thể được sử dụng tuỳ theo cài đặt của hệ thống. Mới mỗi hệ thống có 
+số lượng thành viên tham gia và quy mô có thể lựa chọn cơ chế đồng thuận phù hợp với yêu cầu của hệ thống.
 
-Ngoài ra, Hyperledger Fabric cũng có thể sử dụng các cơ chế đồng thuận khác như PoW hoặc PoS 
-tùy thuộc vào yêu cầu của từng ứng dụng blockchain cụ thể. 
-
-Trình bày cụ thể về các cơ chế đồng thuận kết hợp trong Hyperledger Fabric, em sẽ trình bày 
-ở phần \textbf{Cơ chế đồng thuận}.
 \section{Mô hình Hyperledger Fabric}
 \subsection{Thành phần hệ thống}
 \subsubsection{Nút}
@@ -110,10 +103,10 @@ Có 3 vai trò nút trong hệ thống:
     giao dịch, thực hiện các chaincode (smart contract), cập nhật trạng thái của 
     sổ cái, và đồng bộ dữ liệu với các nút thành viên khác.
     
-    Có hai loại nút thành viên khác nhau: người tán thành (Endorsers) và người cam kết (Committers).
+    Có hai loại nút thành viên khác nhau: người biểu quyết (Endorsers) và người xác thực (Committers).
         \begin{itemize}
-            \item[+] Người tán thành: Mô phỏng, thực thi logic kinh doanh trong chaincode và xác minh tính hợp lệ giao dịch.
-            \item[+] Người cam kết: Xác minh và xác nhận kết quả giao dịch trước khi thêm giao dịch vào blockchain. \cite{hyperledger1}
+            \item[+] Người biểu quyết: Mô phỏng, thực thi logic kinh doanh trong chaincode và xác minh tính hợp lệ giao dịch.
+            \item[+] Người xác thực: Xác minh và xác nhận kết quả giao dịch trước khi thêm giao dịch vào blockchain. \cite{hyperledger1}
         \end{itemize}
     \item[-] Người đặt hàng (Orderer): vai trò là kênh liên lạc trung tâm cho mạng lưới, 
     đảm bảo các thành viên sẽ nhận chính 
@@ -207,53 +200,151 @@ bảo và xác thực khối giao dịch. Cơ chế đồng thuận cung cấp c
 Sự đồng thuận trong Hyperledger Fabric được chia làm 3 giai đoạn:
 
 \begin{itemize}
-    \item[-] Xác nhận: Nút thành viên có vai trò tán thành xác nhận giao dịch hợp lệ bằng cách ký chữ ký bảo lãnh.
+    \item[-] Xác nhận: Nút thành viên có vai trò biểu quyết xác nhận giao dịch hợp lệ bằng cách ký chữ ký bảo lãnh.
     \item[-] Đặt hàng: Chấp nhận các giao dịch được xác nhận và đồng ý về thứ tự được thêm vào sổ cái.
     \item[-] Xác thực: kiểm tra một khối các giao dịch đã được sắp xếp và xác minh tính chính xác của kết quả, 
-    bao gồm kiểm tra chính sách tán thành và tránh tình trạng trùng lặp. \cite{consensus}
+    bao gồm kiểm tra chính sách chứng thực và tránh tình trạng trùng lặp. \cite{consensus}
 \end{itemize}
 
 Cơ chế đồng thuận phủ khắp và bao gồm toàn bộ quá trình giao dịch. Các nút 
 có nhiệm vụ khác nhau sẽ có vai trò khác nhau trong quá trình đồng thuận.
 
-Hyperledger Fabric sử dụng chủ yếu 2 cơ chế đồng thuận là Kafka Ordering Service và Khả năng chịu lỗi
-Byzantine.
+Hyperledger Fabric phiên bản v2.x đang sử dụng giao thức đồng thuận Raft để đảm bảo việc đồng thuận trong 
+mạng blockchain. Raft là giao thức đồng thuận Crash fault tolerant - Khả năng chịu lỗi sự cố (CFT). 
+Ví dụ như nếu có ba nút trong một kênh, nó có thể chịu được việc mất một nút (còn lại hai nút). 
+Nếu bạn có năm nút trong một kênh, bạn có thể mất hai nút (để lại ba nút còn lại). 
 
-\subsubsection{Kafka Ordering Service}
-Kafka Ordering Service là một cơ chế quan trọng trong Hyperledger Fabric được sử dụng
-để xác định thứ tự của các giao dịch trước khi được thêm vào blockchain. Khi một giao 
-dịch mới được tạo ra, nó sẽ được đưa vào hàng đợi để chờ xác nhận. Các nút trong mạng 
-sẽ lấy các giao dịch từ hàng đợi, kiểm tra tính hợp lệ của chúng, và đưa ra quyết 
-định về thứ tự của các giao dịch, sau đó chúng được thêm vào blockchain theo thứ tự 
-đã được xác định.
+\subsubsection{Thuật toán đồng thuận Raft}
 
-Việc sử dụng Kafka Ordering Service giúp đảm bảo tính toàn vẹn và độ tin cậy của dữ 
-liệu trong mạng Hyperledger Fabric. Tất cả các nút trong mạng đều nhận thông tin về 
-các giao dịch mới nhất thông qua hàng đợi, đảm bảo rằng tất cả các nút trong mạng 
-đều chia sẻ cùng một sổ cái. Nó cũng cho phép mạng mở rộng và linh hoạt hơn, vì các 
-nút có thể được thêm vào hoặc loại bỏ khỏi mạng mà không ảnh hưởng đến tính toàn vẹn 
-của dữ liệu.
+Một cụm Raft bao gồm một số nút. Mỗi nút có thể ở một trong ba trạng thái: theo dõi, ứng cử viên hoặc 
+lãnh đạo. Ban đầu các nút đều ở trạng thái theo dõi. Ở trạng thái này, họ có thể chấp nhận các mục nhật 
+ký từ người lãnh đạo (nếu một người đã được bầu chọn) hoặc bỏ phiếu cho người lãnh đạo. Nếu không 
+nhận được mục nhật ký từ người lãnh đạo hoặc người lãnh đạo mất kết nối nào trong một khoảng thời gian đã quy định, các nút sẽ chuyển thành 
+trạng thái ứng cử viên. Ở trạng thái ứng cử viên, các nút yêu cầu phiếu bầu từ các nút khác. Nếu một 
+ứng cử viên nhận được đủ số phiếu bầu, thì nút sẽ thành nút lãnh đạo. Người lãnh đạo phải chấp nhận 
+các mục nhật ký mới và sao chép chúng cho những nút còn lại.
 
-\subsubsection{Khả năng chịu lỗi Byzantine (PBFT)}
-PBFT là một cơ chế đồng thuận được sử dụng để đảm bảo tính toàn vẹn và độ tin cậy 
-của dữ liệu trong mạng bằng cách xác định tính hợp lệ của các giao dịch trong quá 
-trình đồng thuận.
 
-Khi một giao dịch được gửi đến mạng Hyperledger Fabric, PBFT sẽ được sử dụng để 
-kiểm tra và xác định tính hợp lệ của giao dịch trước khi được thêm vào blockchain. 
-Các nút trong mạng sẽ thực hiện các vòng lặp đồng thuận để đưa ra quyết định về tính 
-hợp lệ của một giao dịch dựa trên sự đồng thuận của hầu hết các nút trong mạng.
+\subsection{Cấu trúc mạng Fabric}
 
-Quá trình đồng thuận của PBFT bao gồm các bước như sau:
+Mạng Blockchain là một cơ sở hạ tầng kỹ thuật cung cấp sổ cái và hợp đồng thông minh (chaincode) cho các ứng dụng. 
+Chaincode được sử dụng để tạo ra các giao dịch sau đó phân phối cho nút thành viên trong mạng. Người dùng ứng dụng
+có thể là khách hàng hoặc quản trị viên của mạng blockchain.
+
+Các tổ chức kết hợp với nhau để tạo thành một kênh trong đó các giao dịch được gọi 
+trên chaincode và trong đó các quyền được xác định bởi một bộ chính sách được đồng ý 
+khi kênh được định cấu hình ban đầu. Hơn nữa, các chính sách có thể thay đổi theo 
+thời gian và phụ thuộc vào sự đồng ý của các tổ chức.
+
+Đây là một ví dụ cấu trúc mạng cơ bản: 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/network.png}
+    \caption{Mạng Blockchain Hyperledger Fabric }
+    \label{fig:network}
+\end{figure}
+
+Các thành phần trong mạng là:
 \begin{itemize}
-    \item[-] Gửi yêu cầu cho các nút khác trong mạng để thực hiện đồng thuận.
-    \item[-] Thực hiện vòng lặp đồng thuận để đưa ra quyết định về tính hợp lệ của một giao dịch.
-    \item[-] Gửi thông báo về quyết định đồng thuận cho các nút khác trong mạng.
-    \item[-] Nếu nút hợp lệ thì ký chữ ký bảo lãnh.  
+    \item[-] \textbf{CC:} Channel Configuration (Cấu hình của kênh).
+    \item[-] \textbf{R:} Organization (Tổ chức).
+    \item[-] \textbf{C:} Channel (Kênh), tập hợp các tổ chức có vai trò nhất định 
+    trong cùng một quy trình kinh doanh. Ví dụ, trong một channel về mua bán 
+    xe hơi sẽ gồm có 2 tổ chức là : Nhà sản xuất xe hơi, Nhà phân phối xe hơi.  
+    \item[-] \textbf{P:} Peer (Nút thành viên) là điểm tương tác giữa các thành viên 
+    trong tổ chức tương ứng với kênh, mọi hành động của người dùng đều 
+    phải đi qua nó.
+    \item[-] \textbf{O:} Orderer Node (Nút đặt hàng) tạo thành dịch vụ đặt hàng của kênh.
+    \item[-] \textbf{L:} Ledger (Sổ cái) lưu trữ toàn bộ lịch sử giao dịch của kênh.
+    \item[-] \textbf{A:} Application, ứng dụng hay giao diện (web, mobile app ) giúp người dùng tương tác với hệ thống dễ dàng hơn.
+    \item[-] \textbf{CA:} Certificate Authority, phát hành danh tính cho người dùng 
+    hoặc nút của tổ chức tương ứng. Ví dụ, người dùng A1 là thành viên của 
+    Tổ chức R1, khi muốn tham gia vào mạng thì sẽ gửi yêu cầu đến CA1, 
+    sau đó CA1 sẽ tạo ra một danh tính gồm khoá bí mật, khoá công khai và các 
+    đặc tính liên quan khác, sau đó trả về cho người dùng A1, từ đó về sau 
+    A1 dùng danh tính đó để thực hiện các tương tác với mạng, mạng sẽ tự động 
+    biết đó là người dùng A1 đến từ tổ chức R1.
+    \item[-] \textbf{S:} Smart Contract (Chaincode) được cài đặt trên kênh, định nghĩa rõ các hành động mà có thể thực hiện trên kênh.
+    
 \end{itemize}
 
-\subsection{Luồng giao dịch}
+Các bước để tạo một mạng Fabric:
 
+\subsubsection{Tạo cơ sở mạng}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/create_network.png}
+    \caption{Tạo mạng }
+\end{figure}
+Đầu tiên, các tổ chức R1, R2, R3 đồng ý sử dụng cấu hình CC1. Khối cấu hình được tạo. 
+Khối cấu hình này chứa một bản ghi về các tổ chức có thể tham gia các thành phần và 
+tương tác trên kênh, cũng như các chính sách xác định cấu trúc về cách đồng thuận để được các kết quả cụ thể.
+
+Danh tính của các tổ chức này và danh tính của quản trị viên của họ phải 
+được tạo bởi Tổ chức phát hành chứng chỉ (CA) được liên kết với từng tổ chức.
+
+\subsubsection*{Tổ chức phát hành chứng chỉ (CA)}
+
+Tổ chức phát hành chứng chỉ là một dịch vụ xác thực và quản lý chứng chỉ số trong hệ thống Hyperledger 
+Fabric. Nó cung cấp các tính năng quản lý chứng chỉ số, chứng nhận, đăng ký và phân phối cho các thành 
+phần trong mạng Hyperledger Fabric.
+
+Các tính năng chính của CA bao gồm:
+
+\begin{itemize}
+    \item[-] Đăng ký danh tính cho các thành phần trong mạng: rootCert
+    \item[-] Cấp giấy chứng nhận tuyển sinh (ECert): Khoá bí mật và công khai được tạo bởi ứng dụng khách Fabric CA, sau đó gửi khoá công khai
+    đến CA để được trả về chứng chỉ.
+    \item[-] Cấp, đổi, thu hồi chứng chỉ
+\end{itemize}
+
+
+
+Các thành phần khác nhau của blockchain sử dụng các chứng 
+chỉ để xác định lẫn nhau là từ một tổ chức cụ thể. Ở ví dụ tạo mạng trên, 
+ta có 3 CA đại điện cho 3 tổ chức.
+
+
+CA tạo danh tính bằng cách tạo khóa công khai và khóa riêng tạo thành một cặp khóa có thể được sử dụng 
+để chứng minh danh tính. Để xác định danh tính, ta phải cần một cơ quan đáng tin cậy đó là Nhà cung cấp dịch vụ thành viên (MSP).
+
+MSP là một tập hợp các thư mục được thêm vào cấu hình mạng của kênh và được sử dụng để xác định 
+quyền thực thi của tổ chức. MSP chứa danh sách danh tính được chấp nhận trong kênh, chức 
+vụ và xác định quyền cho một nút trên kênh. 
+
+
+\subsubsection{Các nút tham gia vào kênh}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/join_network.png}
+    \caption{Các nút tham gia vào kênh }
+\end{figure}
+
+Các nút thành viên, đặt hàng tham gia vào kênh. Các nút thuộc về mỗi tổ chức có chứng chỉ x.509 do Cơ quan cấp chứng chỉ 
+liên kết với tổ chức đó tạo cho chúng. Chứng chỉ của P1 được tạo bởi CA1, chứng chỉ của P2 được tạo 
+bởi CA2, v.v.
+
+\subsubsection{Cài đặt và khởi tạo chaincode}
+
+Chaincode được cài đặt trên các nút thành viên, sau đó được khởi tạo trên kênh. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/install_chaincode.png}
+    \caption{Cài đặt và khởi tạo chaincode}
+\end{figure}
+
+\subsubsection{Thêm ứng dụng khách trên kênh}
+
+Sau khi hợp đồng thông minh đã được cam kết, các ứng dụng khách có thể được sử dụng để gọi 
+các giao dịch thông qua các hàm chaincode. Sau bước này, mạng đã sẵn sàng để sử dụng.
+Mạng được tạo sẽ có cấu trúc như hình \ref{fig:network}.
+
+\subsection{Luồng giao dịch}
+\label{subsec:luonggiaodich}
 Luồng giao dịch có các bước sau:
 \begin{figure}[h]
     \centering
@@ -263,45 +354,22 @@ Luồng giao dịch có các bước sau:
 
 
 \begin{itemize}
-    \item[\textbf{1.}] Khách gửi một giao dịch đến các  nút tán thành. Nút tán thành được sử dụng để chứng nhận tính hợp 
+    \item[\textbf{1.}] Khách gửi một giao dịch đến các  nút biểu quyết. Nút biểu quyết được sử dụng để chứng nhận tính hợp 
     lệ của một giao dịch trước khi nó được gửi đến các nút khác để xác nhận và cam kết trên 
     sổ cái. Nó không lưu trữ trực tiếp các thông tin liên quan đến giao dịch hoặc sổ cái.
-    \item[\textbf{2.}] Khi một giao dịch được gửi đến nút tán thành, nó sẽ thực hiện một số hoạt 
+    \item[\textbf{2.}] Khi một giao dịch được gửi đến nút biểu quyết, nó sẽ thực hiện một số hoạt 
     động để chứng nhận tính hợp lệ của giao dịch đó. Đầu tiên, nó sẽ kiểm 
-    tra xác thực của người gửi giao dịch và xác định xem họ có quyền thực hiện giao dịch hay 
-    không. Sau đó, nó sẽ thực hiện việc thực thi các hàm chaincode để xác 
-    định xem giao dịch có hợp lệ hay không. Với mỗi một lệnh được thực hiện thì ta ghi lại 
-    trạng thái đọc và ghi của dữ liệu,gọi là tập ReadWrite (RW)
-    Nếu nút này thấy là giao dịch hợp lệ, nó sẽ tạo một chữ ký bảo lãnh và gửi lại cho người 
+    tra giao dịch này đã từng được gửi hay chưa để đảm bảo không trùng lặp. Chaincode sẽ được thực thi
+    và trả về kết quả. Với mỗi một lệnh được thực hiện thì ta ghi lại 
+    trạng thái đọc và ghi của dữ liệu, gọi là tập ReadWrite (RW).
+    Nếu nút này thấy là giao dịch hợp lệ, nó sẽ tạo một chữ ký bảo lãnh. Tập RW cùng chữ ký sẽ được gửi lại cho người 
     gửi giao dịch. 
-    \item[\textbf{3.}] Khi một giao dịch được chứng nhận hợp lệ, khách sẽ gửi giao dịch
+    \item[\textbf{3.}] Khi một giao dịch được ký chữ ký bảo lãnh, khách sẽ gửi giao dịch
     đó đến các ordering service. Người đặt hàng sẽ xác định thứ tự của các khối dựa trên 
-    chữ ký bảo lãnh của nút tán thành và sắp xếp các giao dịch vào các khối tương 
+    chữ ký bảo lãnh của nút biểu quyết và sắp xếp các giao dịch vào các khối tương 
     ứng. Sau đó nó gửi các khối đến toàn bộ nút thành viên.
-    \item[\textbf{4.}] Người cam kết sẽ xác nhận lại các chính sách xác thực một lần nữa. 
-    Đồng thời nó kiểm tra hiệu lực của tập RW. Việc xác nhận giao dịch sẽ được lưu vào World- state, còn sổ cái sẽ lưu lại các giao dịch. 
-    Khi này, sổ cái được đồng bộ hóa.
-    \item[\textbf{4.}] Người cam kết sẽ thông báo lại cho ứng dụng là trạng thái của giao dịch. 
-    
-    Ứng dụng sẽ thông báo cho các thành viên trong kênh. \cite{hyperledger}
+    \item[\textbf{4.}] Người xác thực kiểm tra lại chính sách xác thực và kiểm tra hiệu lực của tập RW. Việc xác nhận giao dịch sẽ được lưu vào World- state, còn sổ cái sẽ lưu lại các giao dịch. 
+    Khối sẽ được đánh dấu là hợp lệ hoặc không hợp lệ.
+    \item[\textbf{5.}] Nếu khối là hợp lệ. Khối sẽ được thêm vào chuỗi. Các nút thành viên cập nhật lại trạng thái của sổ cái theo giao thức đồng thuận Raft.
+    Thông báo lại kết quả cho ứng dụng khách. \cite{hyperledger}
 \end{itemize}
-
-\section{Cấu trúc mạng Fabric}
-
-Mạng Blockchain là một cơ sở hạ tầng kỹ thuật cung cấp sổ cái và hợp đồng thông minh (chaincode) cho các ứng dụng. 
-Chaincode được sử dụng để tạo ra các giao dịch sau đó phân phối cho nút thành viên trong mạng. Người dùng ứng dụng
-có thể là khách hàng hoặc quản trị viên của mạng blockchain.
-
-Các tổ chức kết hợp với nhau để tạo thành một kênh trong đó các giao dịch được gọi 
-trên chaincode và trong đó các quyền được xác định bởi một bộ chính sách được đồng ý 
-khi kênh được định cấu hình ban đầu. Hơn nữa, các chính sách có thể thay đổi theo 
-thời gian tùy thuộc vào sự đồng ý của các tổ chức.
-
-Đây là một ví dụ mạng cơ bản: 
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{images/network.png}
-    \caption{Mạng Blockchain Hyperledger Fabric }
-\end{figure}
-

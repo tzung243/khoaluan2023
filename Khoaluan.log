@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2023.5.4)  11 MAY 2023 03:36
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 22.1) (preloaded format=xelatex 2023.5.4)  12 MAY 2023 02:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1709,94 +1709,86 @@ Package mdframed Info: mdframed detected package amsthm
 File: images/encrypt-decrypt.png Graphic file (type bmp)
 <images/encrypt-decrypt.png>
  [8] [9] [10] [11] [12] [13] [14]
-[15]
-
-LaTeX Warning: Citation `Elliptic_Curve' on page 16 undefined on input line 380
-.
-
-[16] [17]) (7_merkle.tex
+[15] [16] [17]) (7_merkle.tex
 File: images/Merkle_Tree.png Graphic file (type bmp)
 <images/Merkle_Tree.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[18] [19]
+ [18]
 File: images/merkle-tree-8levels.png Graphic file (type bmp)
 <images/merkle-tree-8levels.png>
- [20]) (8_blockchain.tex
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[19]) (8_blockchain.tex [20]
 File: images/He_thong_tap_chung:phi_tap_chung.png Graphic file (type bmp)
 <images/He_thong_tap_chung:phi_tap_chung.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[21] [22]
+ [21] [22]
 File: images/Cau_truc_khoi.png Graphic file (type bmp)
 <images/Cau_truc_khoi.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[23] [24] [25] [26] [27]) (9_truyxuat.tex [28]
+ [23] [24] [25] [26] [27])
+(10_hyperledger.tex [28]
 Chương II.
 [29
 
-] [30]) (10_hyperledger.tex [31]
-Chương III.
-[32
-
-] [33] [34] [35] [36] [37] [38]
-File: images/flow-4.png Graphic file (type bmp)
-<images/flow-4.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[39] [40]
+] [30] [31] [32] [33] [34] [35]
 File: images/network.png Graphic file (type bmp)
 <images/network.png>
-) (11_ungdung.tex [41]
-Chương IV.
-[42
-
-]
-File: images/domain_model.png Graphic file (type bmp)
-<images/domain_model.png>
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[43] [44]
+[36]
+File: images/create_network.png Graphic file (type bmp)
+<images/create_network.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[37] [38]
+File: images/join_network.png Graphic file (type bmp)
+<images/join_network.png>
+File: images/install_chaincode.png Graphic file (type bmp)
+<images/install_chaincode.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[39]
+File: images/flow-4.png Graphic file (type bmp)
+<images/flow-4.png>
+ [40]) (9_truyxuat.tex [41]
+Chương III.
+[42
+
+] [43]) (11_ungdung.tex [44]
+Chương IV.
+[45
+
+] [46]
+File: images/domain_model.png Graphic file (type bmp)
+<images/domain_model.png>
+ [47]
 File: images/Smart_Contract.png Graphic file (type bmp)
 <images/Smart_Contract.png>
- [45]
-
-LaTeX Warning: Citation `Introduction' on page 46 undefined on input line 123.
-
-[46]) (12_bib.tex [47]) [48
+ [48] [49]) (12_bib.tex [50]) [51
 
 ] (Khoaluan.lof)
 \tf@lof=\write6
 \openout6 = `Khoaluan.lof'.
 
- (13_dichchu.tex [49
+ (13_dichchu.tex [52
 
-]) [50]
-(Khoaluan.aux)
-
-LaTeX Warning: There were undefined references.
-
+]) [53] (Khoaluan.aux)
 Package rerunfilecheck Info: File `Khoaluan.out' has not changed.
-(rerunfilecheck)             Checksum: 33379FA201013C4FA00921744A4D199B;15957.
+(rerunfilecheck)             Checksum: E50481D5B03334769560828E89F4E1E4;17082.
  ) 
 Here is how much of TeX's memory you used:
- 44445 strings out of 413442
- 1037065 string characters out of 2850008
+ 44475 strings out of 413442
+ 1037859 string characters out of 2850008
  1922018 words of memory out of 3000000
- 63830 multiletter control sequences out of 15000+600000
+ 63857 multiletter control sequences out of 15000+600000
  517941 words of font info for 90 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  100i,12n,104p,746b,2488s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Khoaluan.pdf (57 pages).
+Output written on Khoaluan.pdf (60 pages).

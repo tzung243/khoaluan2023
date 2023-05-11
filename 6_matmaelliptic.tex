@@ -99,7 +99,7 @@ Một số phương pháp sử dụng để trao đổi khoá trong có hệ m�
     \item[-] Trao đổi khoá ElGamal
 \end{itemize}
 
-trong khoá luận này, em sẽ tập chung vào trao đổi khoá Diffie-Hellman.
+Trong khoá luận này, em sẽ tập chung vào trao đổi khoá Diffie-Hellman.
 \subsection{Trao đổi khoá Diffie-Hellman}
 
 Thuật toán trao đổi khóa Diffie-Hellman giải quyết tình huống sau. Alice và
@@ -140,14 +140,14 @@ rạc trong $\mathbb{F}^*_p$ đã đưa ra một giải pháp.
 Đầu tiên, Alice và Bob thống nhất sử dụng một số nguyên tố $p$ và một số nguyên khác không $g$  theo modulo $p$. 
 Tiếp theo, Alice bí mật chọn một số nguyên $a$ và không cho ai biết. Cùng lúc đó, Bob cũng bí mật chọn một số nguyên $b$.
 Alice và Bob sử dụng những số bí mật của họ và tính
-$$\underbrace{A \equiv g^a \pmod{p}}_{\text{Alice tính}} \text{ và } \underbrace{B \equiv g^b \pmod{p}}_{\text{Bob tính}}$$.
+$$\underbrace{A \equiv g^a \pmod{p}}_{\text{Alice tính}} \text{ và } \underbrace{B \equiv g^b \pmod{p}}_{\text{Bob tính}}$$
 
 Sau đó, họ trao đổi với nhau giá trị vừa tính được, Alice gửi $A$ cho Bob và Bob gửi $B$ cho Alice. 
 Cuối cùng, Bob và Alice tiếp tục sử dụng những số bí mật mà họ đã chọn ở bước trước đó, và tính
-$$\underbrace{A' \equiv B^a \pmod{p}}_{\text{Alice tính}} \text{ và } \underbrace{B' \equiv A^b \pmod{p}}_{\text{Bob tính}}$$.
+$$\underbrace{A' \equiv B^a \pmod{p}}_{\text{Alice tính}} \text{ và } \underbrace{B' \equiv A^b \pmod{p}}_{\text{Bob tính}}$$
 
 $A'$ và $B'$, là bằng nhau, vì:
-$$A' \equiv B^a \equiv (g^a)^b \equiv g^{ab} \equiv (g^b)^a \equiv A^b \equiv B' \pmod{p}.$$
+$$A' \equiv B^a \equiv (g^a)^b \equiv g^{ab} \equiv (g^b)^a \equiv A^b \equiv B' \pmod{p}$$
 
 Giá trị này là khóa mà cả hai cùng chấp nhận sử dụng.
 
@@ -377,7 +377,7 @@ phần tử trong đường cong.
 
 Vậy nên để đảm bảo độ bảo mật và tính khó tính toán cho bài toán trên,
 ta sử dụng đường cong elliptic có số phần tử lớn, hay chọn $p$ là một
-số nguyên tố lớn, và chọn 1 đường cong elliptic trên trường hữu hạn $F_p$. \cite{Elliptic_Curve}
+số nguyên tố lớn, và chọn 1 đường cong elliptic trên trường hữu hạn $F_p$. \cite{elliptic}
 
 \subsection{Mật mã đường cong elliptic trong chữ ký số}
 \subsubsection{Chữ ký số} 
