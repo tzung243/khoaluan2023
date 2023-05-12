@@ -59,13 +59,13 @@ Tuỳ vào từng sản phẩm cụ thể, mô hình có thể thêm hoặc bớ
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{images/domain_model.png}
-    \caption{Domain Model của Business Logic \cite{app}} 
+    \caption{Domain Model của Business Logic } 
 \end{figure}
 
 Các tổ chức muốn tham gia vào chuỗi cung ứng sẽ đăng ký tham gia. Để được xác nhận, 
 tổ chức sẽ kí hợp đồng thông minh thể hiện qua chaincode. Nếu thoả mãn hợp đồng, 
 tổ chức sẽ được thêm vào và có một mã định danh ID. Chaincode thể hiện các điều khoản
-và các cam kết cần thực hiện. 
+và các cam kết cần thực hiện \cite{app}.
 
 Một loại sản phẩm muốn thêm vào blockchain sẽ được đăng ký thông qua một hợp đồng 
 thông minh. Nó thoả mãn các yêu cầu thì sẽ được thêm vào blockchain. Việc kiểm tra 
@@ -88,7 +88,7 @@ Một số hàm tiêu biểu của chaincode trong hệ thống truy xuất ngu�
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.4\textwidth]{images/Smart_Contract.png}
-        \caption{Chaincode \cite{app}}
+        \caption{Chaincode }
     \end{figure}
     \item \textbf{addRoleSet():} Thêm một thành viên mới vào hệ thống. Thành viên này có thể là một tổ chức hoặc cá nhân.
     \item \textbf{addProductType():} Thêm một loại sản phẩm mới vào hệ thống. Loại sản phẩm này có thể là sản phẩm chính hoặc sản phẩm phụ.
@@ -102,7 +102,7 @@ Một số hàm tiêu biểu của chaincode trong hệ thống truy xuất ngu�
     \item \textbf{blockBatch() và unblockBatch():} cho phép chặn và mở chặn một lô sản phẩm.
     \item \textbf{requestBatchTransfer():} cho phép một tổ chức yêu cầu chuyển một lô sản phẩm từ một tổ chức khác.
     \item \textbf{acceptBatchTransfer() và refuseBatchTransfer():} cho phép chấp nhận hoặc từ chối chuyển lô sản phẩm.
-    \item \textbf{getBatchHistory():} cho phép lấy lịch sử của một lô sản phẩm.
+    \item \textbf{getBatchHistory():} cho phép lấy lịch sử của một lô sản phẩm \cite{app}.
 \end{itemize}
 \subsubsection{Tạo mạng}
 \subsection{Các bước thực hiện}

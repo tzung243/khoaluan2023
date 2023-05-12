@@ -12,7 +12,7 @@ SHA-256 hoặc SHA-3.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/Merkle_Tree.png}
+    \includegraphics[width=0.6\textwidth]{images/Merkle_Tree.png}
     \caption{Merkle Tree }
     \label{fig:merkle_tree}
 \end{figure}
@@ -55,11 +55,11 @@ Chúng ta xác minh các giao dịch trên cây Merkle như thế nào?
 Giả sử chúng ta có một cây Merkle với 8 nút lá thể hiện các giao dịch từ A đến H. Chúng ta sẽ sử dụng giá trị băm 
 của các nút lá để xác minh tính toàn vẹn của dữ liệu. Giá trị băm của các nút lá 
 được sử dụng để tính toán giá trị băm của các nút cha, và quá trình này được lặp 
-lại cho đến khi chỉ còn lại một giá trị băm duy nhất, được gọi là "root hash". 
+lại cho đến khi chỉ còn lại một giá trị băm duy nhất, được gọi là ``root hash". 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/merkle-tree-8levels.png}
+    \includegraphics[width=0.6\textwidth]{images/merkle-tree-8levels.png}
     \caption{Cây Merkle 8 lá}
     \label{fig:merkle_tree_8levels}
 \end{figure}

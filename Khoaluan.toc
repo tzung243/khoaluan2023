@@ -80,5 +80,5 @@
 \contentsline {section}{\numberline {3}Công nghệ sử dụng}{50}{section.4.3}%
 \contentsline {section}{\numberline {4}Thực nghiệm}{50}{section.4.4}%
 \contentsline {section}{\numberline {5}Kết luận và hướng phát triển}{50}{section.4.5}%
-\contentsline {chapter}{Tài liệu tham khảo}{51}{chapter*.18}%
-\contentsline {chapter}{Danh sách hình vẽ}{52}{chapter*.19}%
+\contentsline {chapter}{Tài liệu tham khảo}{51}{chapter*.21}%
+\contentsline {chapter}{Danh sách hình vẽ}{53}{chapter*.24}%
