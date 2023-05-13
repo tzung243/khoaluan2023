@@ -1,7 +1,73 @@
 \chapter{ Truy xuất nguồn gốc thực phẩm dựa trên công nghệ Blockchain}
-\section{Đặt vấn đề}
 
-Như đã trình bày ở chương \ref{Chapter2}, ta cần tìm ra một mô hình có thể đảm bảo 
+\section{Truy xuất nguồn gốc thực phẩm}
+\label{Chapter2}
+\subsection{Khái niệm truy xuất nguồn gốc thực phẩm}
+Truy xuất nguồn gốc thực phẩm là quá trình xác định nguồn gốc và lịch sử sản xuất
+của một sản phẩm thực phẩm từ giai đoạn sản xuất đến khi đến tay người tiêu dùng. Ý
+nghĩa của việc truy xuất nguồn gốc thực phẩm là giúp người tiêu dùng đảm bảo được
+an toàn về chất lượng và nguồn gốc của sản phẩm mà mình sử dụng, đồng thời cũng là
+một phương tiện quan trọng giúp kiểm soát và ngăn chặn sự xuất hiện của những sản
+phẩm thực phẩm giả mạo, không rõ nguồn gốc và an toàn.
+
+Việc truy xuất nguồn gốc thực phẩm đang được xem là một xu hướng quan trọng
+trong ngành thực phẩm, đặc biệt là trong bối cảnh ngày nay, khi mối đe dọa về an toàn
+thực phẩm và việc giả mạo sản phẩm thực phẩm ngày càng trở nên phức tạp. Việc thực
+hiện truy xuất nguồn gốc thực phẩm sẽ giúp tăng cường niềm tin của người tiêu dùng
+đối với sản phẩm thực phẩm và giúp nâng cao chất lượng và an toàn thực phẩm trên thị
+trường.
+
+Truy xuất nguồn gốc thực phẩm được thực hiện thông qua việc ghi nhận, lưu trữ
+và quản lý các thông tin liên quan đến quá trình sản xuất và phân phối sản phẩm thực
+phẩm, bao gồm nguồn gốc, thời gian sản xuất, địa điểm sản xuất, thông tin về các thành
+phần, chất lượng, độ an toàn của sản phẩm. Những thông tin này được ghi nhận và kiểm
+soát bởi các cơ quan chức năng, doanh nghiệp và các tổ chức liên quan trong quá trình
+sản xuất và phân phối sản phẩm.
+
+\subsection{Các mô hình truy xuất nguồn gốc hiện nay}
+\subsubsection{Mô hình theo dõi dòng sản phẩm }
+Mô hình theo dõi dòng sản phẩm là một mô hình 
+truy xuất nguồn gốc đơn giản nhất. Trong mô hình này, mỗi sản phẩm được gắn 
+nhãn hoặc mã số duy nhất để theo dõi từ khi sản xuất đến khi đến tay người 
+tiêu dùng. Thông tin về nguồn gốc, quá trình sản xuất, vận chuyển và lưu trữ 
+của sản phẩm được lưu trữ trong cơ sở dữ liệu và có thể được tra cứu bởi người tiêu dùng.
+
+Mô hình này sư dụng mã QR và mã vạch để truy xuất nguồn gốc. Các mã QR và mã vạch 
+được in trên sản phẩm để cho phép người tiêu dùng quét và truy xuất thông tin về 
+nguồn gốc, quá trình sản xuất và vận chuyển của sản phẩm.
+
+Mô hình này khá đơn giản, dễ triển khai và chi phí thấp. Nó cũng giúp tăng cường 
+tính minh bạch và đáng tin cậy của thông tin về nguồn gốc sản phẩm.
+\subsubsection{Mô hình truy xuất nguồn gốc dựa vào IoT }
+Mô hình truy xuất nguồn gốc dựa vào IoT (Internet of Things) là một mô hình truy 
+xuất nguồn gốc sử dụng công nghệ IoT để thu thập và chia sẻ thông tin về nguồn gốc, 
+quá trình sản xuất, vận chuyển và lưu trữ của sản phẩm.
+
+Trong mô hình này, các cảm biến IoT được gắn trên sản phẩm để thu thập thông tin 
+về vị trí, nhiệt độ, độ ẩm và các thông số khác liên quan đến quá trình sản xuất 
+và vận chuyển sản phẩm. Các dữ liệu này được lưu trữ và chia sẻ trên nền tảng 
+đám mây, giúp người tiêu dùng có thể truy xuất thông tin về nguồn gốc sản phẩm 
+bằng cách quét mã QR hoặc mã vạch trên sản phẩm.
+
+\subsubsection{Các vấn đề của các hệ thống truy xuất nguồn gốc hiện có}
+
+Các mô hình truy xuất nguồn gốc hiện nay đang có một số hạn chế cần phải khắc phục. 
+Các mô hình này sử dụng nguồn dữ liệu từ các cơ sở dữ liệu của các tổ chức, doanh
+nghiệp, việc đảm bảo thông tin là chính xác không được xác nhận. Ngoài ra, thông 
+tin được lưu trữ trên một hệ thống tập trung, do bên thứ 3 quản lý, do bên thứ 3
+có thể thay đổi thông tin, làm giả mạo thông tin và mất mát thông tin trong quá
+trình truyền tải. Khi bên thứ 3 bị tấn công, sửa đổi thông tin, chúng ta không 
+thể kiểm soát được. Các mô hình này cũng không thể cung cấp toàn bộ chi tiết 
+về nguồn gốc, quá trình sản xuất.
+
+Vậy nên bài toán đặt ra là xây dựng một mô hình truy xuất nguồn gốc thực phẩm
+sao cho thông tin lưu trữ đầy đủ các quy trình, các thông tin lưu trữ đảm bảo tính
+toàn vẹn, không thể làm giả.
+
+
+\section{Truy xuất nguồn gốc thực phẩm bằng công nghệ Blockchain}
+
+Như đã trình bày ở phần \ref{Chapter2}, ta cần tìm ra một mô hình có thể đảm bảo 
 tính toàn vẹn và đáng tin cậy cao, khó bị tấn công từ bên ngoài, và giúp 
 cải thiện tính minh bạch và đáng tin cậy trong quá trình sản xuất và vận 
 chuyển sản phẩm.  
@@ -9,6 +75,7 @@ chuyển sản phẩm.
 Bài toán truy xuất nguồn gốc thực phẩm là một trong những ứng dụng tiềm năng của công nghệ 
 blockchain. Bằng cách sử dụng blockchain, thông tin về nguồn gốc, vận chuyển và lưu trữ 
 của các sản phẩm thực phẩm có thể được lưu trữ và truy xuất một cách an toàn và minh bạch.
+
 \subsection{Ưu điểm mô hình truy xuất nguồn gốc thực phẩm dựa trên blockchain}
  
 \begin{itemize}
@@ -58,38 +125,42 @@ Tuỳ vào từng sản phẩm cụ thể, mô hình có thể thêm hoặc bớ
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{images/domain_model.png}
-    \caption{Domain Model của Business Logic } 
+    \includegraphics[width=1\textwidth]{images/domain_model.png}
+    \caption{Domain Model } 
 \end{figure}
 
-Các tổ chức muốn tham gia vào chuỗi cung ứng sẽ đăng ký tham gia. Để được xác nhận, 
+Các tổ chức (Organization) muốn tham gia vào chuỗi cung ứng sẽ đăng ký tham gia vào hệ thống. Để được xác nhận, 
 tổ chức sẽ kí hợp đồng thông minh thể hiện qua chaincode. Nếu thoả mãn hợp đồng, 
-tổ chức sẽ được thêm vào và có một mã định danh ID. Chaincode thể hiện các điều khoản
-và các cam kết cần thực hiện \cite{app}.
+tổ chức sẽ được thêm vào và có một mã định danh ID. Mỗi tổ chức sẽ có những một vai trò nhất định, được thể hiện
+thông qua RoleSet. RoleSet liên kết với các hợp đồng thông minh để xác định các hành động mà
+tổ chức có thể thực hiện thông qua việc gọi hàm của chaincode.
 
-Một loại sản phẩm muốn thêm vào blockchain sẽ được đăng ký thông qua một hợp đồng 
-thông minh. Nó thoả mãn các yêu cầu thì sẽ được thêm vào blockchain. Việc kiểm tra 
+Một tổ chức có thể đăng ký nhiều sản phẩm, loại sản phẩm khác nhau. Việc đăng ký sản phẩm
+này thoả mãn các điều kiện được thiết kế trong hợp đồng thông minh. Việc kiểm tra 
 yêu cầu này được thực hiện một cách tự động thông qua các hàm của chaincode. Sản phẩm có một 
 số thuộc tính như ID, type, state,...
+
 Một sản phẩm có thể được cấu tạo từ nhiều nguyên liệu, vật tư,... Những nguyên liệu ấy
 có thể đã được tồn tại trong mạng blockchain. Nếu tồn tại trong mạng blockchain, ta sẽ thêm 
 thuộc tính params để thể hiện mối quan hệ. Nếu không thì ta sẽ yêu cầu giao dịch
-để ghi thông tin về sản phẩm. 
+để ghi thông tin về sản phẩm\cite{app}. 
 
 Việc xây dựng Domain Model như này giúp việc quản lý nguồn gốc cũng như xác thực nguồn gốc 
 dễ dàng hơn, như quản lý được sản phẩm được sản xuất từlô nông sản nào, cũng từ đó truy xuất được nguồn gốc giống của sản phẩm nôngsản.
-\subsubsection{Chaincode (Hợp đồng thông minh)}
+\subsubsection{Chaincode}
 Chaincode nó được sử dụng để xác định các đầu vào và đầu ra của các giao dịch trên blockchain. Chaincode là một chương trình được 
 viết bằng một trong các ngôn ngữ lập trình.
 
 Một số hàm tiêu biểu của chaincode trong hệ thống truy xuất nguồn gốc thực phẩm.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/Smart_Contract.png}
+    \caption{Chaincode }
+\end{figure}
+
 \begin{itemize}
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=0.4\textwidth]{images/Smart_Contract.png}
-        \caption{Chaincode }
-    \end{figure}
+    
     \item \textbf{addRoleSet():} Thêm một thành viên mới vào hệ thống. Thành viên này có thể là một tổ chức hoặc cá nhân.
     \item \textbf{addProductType():} Thêm một loại sản phẩm mới vào hệ thống. Loại sản phẩm này có thể là sản phẩm chính hoặc sản phẩm phụ.
     \item \textbf{addRule():} Thêm một quy tắc mới vào hệ thống. Quy tắc này có thể là quy tắc chính hoặc quy tắc phụ.
@@ -114,7 +185,7 @@ Các bước thực hiện cơ bản của hệ thống truy xuất nguồn gố
         \item[-] \textbf{1.3:} Tổ chức tạo admin là nút khách trong hệ thống, và yêu cầu
         tham gia vào kênh. Peer node xác thực thông tin của client và cấp quyền.
     \item[-] \textbf{Bước 2:} Các tổ chức đăng ký các loại sản phẩm của riêng mình bằng cách 
-    gửi yêu cầu giao dịch. Các bước thực hiện được trình bày ở \ref{subsec:luonggiaodich} của chương \ref{chap:hyper}.
+    gửi yêu cầu giao dịch. Các bước thực hiện được trình bày ở \ref{subsec:luonggiaodich} chương \ref{chap:hyper}.
     \item[-] \textbf{Bước 3:} Các tổ chức lần lượt thêm các thông tin, các thông tin sẽ được
     lưu trữ trong các khối nối tiếp nhau và sắp xếp theo thời gian. Các nút thành viên sẽ lưu 
     trữ chuỗi khối này ở sổ cái.

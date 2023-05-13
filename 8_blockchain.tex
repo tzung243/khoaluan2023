@@ -4,19 +4,18 @@
 Blockchain là một công nghệ mới và đầy tiềm năng, được sử dụng để lưu 
 trữ và quản lý thông tin một cách an toàn và minh bạch. Nó là một cơ 
 sở dữ liệu phân tán, trong đó dữ liệu được lưu trữ trên nhiều nút 
-mạng và được bảo vệ bởi mã hóa mạnh. Cơ sở dữ liệu này sẽ lưu thông tin trong các khối , các khối 
+mạng và được bảo vệ bởi mã hóa mạnh. Blockchain lưu thông tin trong các khối , các khối 
 này sẽ được liên kết với nhau bằng mã hóa và có thể mở rộng theo 
 thời gian để tạo thành chuỗi. Vì vậy, 
 nếu một khối bị thay đổi hoặc xóa, toàn bộ chuỗi sẽ bị ảnh 
 hưởng và trở nên không hợp lệ.
 
-Ta có thể hiểu đơn giản Blockchain chính là một cuốn sổ cái kỹ thuật 
-số phân tán. Cuốn sổ cái này sẽ lưu trữ tất cả các loại thông tin 
-giao dịch và được sao chép thành nhiều bản đặt tại nhiều máy tính khác nhau. 
-
-Không giống như các cơ sở dữ liệu thông thường, blockchain là cơ sở dữ liệu phi tập trung. 
-Tức là blockchain không đặt tại một vị trí nhất định và chịu sự quản lý của một quản trị viên mà nó được sao chép thành nhiều bản và được lưu trên các máy tính riêng lẻ gọi là nút. 
-
+Blockchain có thể được miêu tả như một cuốn sổ cái kỹ thuật số phân tán. 
+Nó lưu trữ thông tin giao dịch và được sao chép thành nhiều bản đặt tại 
+các máy tính khác nhau. Khác với các cơ sở dữ liệu thông thường, Blockchain 
+là cơ sở dữ liệu phi tập trung, không được đặt tại một vị trí cố định và không có 
+quản trị viên duy nhất, mà thay vào đó được sao chép và lưu trữ trên nhiều máy 
+tính riêng lẻ được gọi là nút.
 
 Một trong những ưu điểm của blockchain là tính minh bạch và an toàn. 
 Do dữ liệu được lưu trữ phân tán, không ai có thể can thiệp vào và 
@@ -94,7 +93,8 @@ Cấu trúc của 1 khối được minh hoạ qua sơ đồ sau:
         \item[+] Merkle Root: Mã hash của tất cả các giao dịch trong khối hiện tại, 
         được tính toán bằng cách sử dụng cây Merkle.
         \item[+] Nonce: là một số ngẫu nhiên được sử dụng để giải quyết bài toán PoW.
-        \item[+] Target Difficulty: là một giá trị được sử dụng để xác định độ khó của bài toán PoW trong block này.
+        \item[+] Target Difficulty: là một giá trị được sử dụng để xác định độ khó của bài toán PoW trong khối này. 
+        Biểu thị bởi số lượng số 0 đứng trước giá trị băm. 
     \end{itemize}
     \item[-] Block Body: chứa các các giao dịch được thực hiện trên blockchain.
 \end{itemize}
@@ -147,8 +147,7 @@ hoạt động và duy trì tính toàn vẹn của blockchain.
     "bài toán đào". Bài toán này yêu cầu các nút phải tìm ra một giá trị băm 
     thoả mãn điều kiện, dựa trên các thông tin trong khối mới nhất và khối trước đó. 
     Việc giải quyết bài toán này đòi hỏi sự tiêu tốn của năng lượng tính toán, 
-    thời gian và tài nguyên máy tính. Điều kiện này là giá trị “difficulty” – 
-    số lượng số 0 đứng phía trước giá trị băm.
+    thời gian và tài nguyên máy tính. Điều kiện này là giá trị “Target Difficulty”.
     \item[-] \textbf{PoS}: là một giao thức đồng thuận được sử 
     dụng trong blockchain để đảm bảo tính nhất quán và đáng tin cậy của dữ 
     liệu. PoS hoạt động khác với PoW, bằng cách không yêu cầu các nút trong 
@@ -163,13 +162,12 @@ hoạt động và duy trì tính toàn vẹn của blockchain.
 \end{itemize}
 
 
-Blockchain sử dụng các giao thức đồng thuận để đảm tính tin cậy và bảo mật. Khi không nắm được 51\% 
-số nút trong mạng, dữ liệu mạng không thể bị kiểm soát và sửa đổi. Do đó, 
-bản thân Blockchain đã trở nên tương đối an toàn và có thể tránh việc sửa đổi 
-dữ liệu. Vì thế, nếu một số lượng lớn các nút có khả năng tính toán mạnh được 
-tham gia vào hệ thống thì dữ liệu trong hệ thống này sẽ có độ bảo mật cao hơn.  
-
-
+Blockchain sử dụng các giao thức đồng thuận để đảm bảo tính tin cậy và bảo mật của 
+dữ liệu. Khi không kiểm soát được 51\% số nút trong mạng, dữ liệu trong mạng sẽ 
+không bị kiểm soát và sửa đổi. Vì vậy, Blockchain có thể tránh được việc sửa đổi dữ 
+liệu, tạo nên tính an toàn đáng tin cậy của nó. Nếu có một số lượng lớn các nút có 
+khả năng tính toán mạnh tham gia vào hệ thống, độ bảo mật của dữ liệu trong hệ thống 
+sẽ được nâng cao.
 
 \subsection{Cách thức hoạt động của Blockchain}
 \subsubsection{Thêm giao dịch mới vào Blockchain}

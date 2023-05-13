@@ -1,7 +1,6 @@
 \documentclass[a4paper, 14pt]{report}
 
 \setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{3}
 
 
 \usepackage[vietnamese=nohyphenation]{hyphsubst}
@@ -167,15 +166,22 @@ innerleftmargin=5pt,innerrightmargin=5pt]{mybox}
 
 \begin{document}
 \pagestyle{empty}
+
 \input{0_Bia.tex}
 \input{1_Bia.tex}
+\pagenumbering{roman} 
+\setcounter{page}{1}
 \input{2_Loicamon.tex}
 \input{3_Kyhieu.tex}
-
-
-\tableofcontents
-
+\listoffigures
+\input{13_dichchu.tex}
+\clearpage
 \newpage
+\setcounter{page}{0}
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
 \pagestyle{plain}
 
 \input{4_Modau.tex}
@@ -184,9 +190,9 @@ innerleftmargin=5pt,innerrightmargin=5pt]{mybox}
 \input{7_merkle.tex}
 \input{8_blockchain.tex}
 \input{10_hyperledger.tex}
-\input{9_truyxuat.tex}
 \input{11_ungdung.tex}
 \input{12_bib.tex}
-\input{13_dichchu.tex}
-\listoffigures
+
+% \input{14_phuluc.tex}
+
 \end{document}      
