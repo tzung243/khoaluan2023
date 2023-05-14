@@ -85,7 +85,7 @@ Hyperledger Fabric là một nền tảng blockchain dành cho doanh nghiệp, c
 nhiều cơ chế đồng thuận khác nhau như Proof of Work (PoW), Crash fault tolerant (CFT), Byzantine fault tolerant (BFT). Việc sử dụng cơ chế đồng thuận kết hợp trong 
 Hyperledger Fabric được thực hiện nhằm đảm bảo tính toàn vẹn và bảo mật của hệ thống. 
 
-Các cơ chế đồng thuận có thể được sử dụng tuỳ theo cài đặt của hệ thống. Mới mỗi hệ thống có 
+Các cơ chế đồng thuận có thể được sử dụng tùy theo cài đặt của hệ thống. Mới mỗi hệ thống có 
 số lượng thành viên tham gia và quy mô có thể lựa chọn cơ chế đồng thuận phù hợp với yêu cầu của hệ thống.
 
 \section{Mô hình Hyperledger Fabric}
@@ -95,7 +95,7 @@ Các nút trong hệ thống này đảm nhận các vai trò khác nhau. Mỗi 
 nhau trong hệ thống.
 Có 3 vai trò nút trong hệ thống:  
 \begin{itemize}
-    \item[-] Khách (Client): như là người dùng cuối, nó tạo và huỷ 
+    \item[-] Khách (Client): như là người dùng cuối, nó tạo và hủy
     các giao dịch, cho phép đảm nhận vai trò giao tiếp với các nút khác trong mạng.
     \item[-] Thành viên (Peer): Là nút mạng tham gia vào quá trình xử lý giao dịch và lưu trữ 
     dữ liệu trong mạng blockchain. Mỗi nút thành viên có một bản sao của sổ cái và có 
@@ -127,7 +127,7 @@ một phần mềm các định một hoặc nhiều nội dung. Nó thực thi 
 để đọc và thay đổi các cặp giá trị key-value được lưu trữ trong sổ cái. 
 
 Một giao dịch đề xuất thay đổi được gửi đến các nút thành viên trong mạng blockchain, và các 
-thành viên thực thi chaincode để kiểm tra và xác minh giao dịch này. Nếu giao dịch thoả mãn các quy 
+thành viên thực thi chaincode để kiểm tra và xác minh giao dịch này. Nếu giao dịch thỏa mãn các quy 
 tắc được định nghĩa bởi chaincode, giao dịch sẽ được thực thi và kết 
 quả được thêm cho sổ cái được lưu tất cả các nút thành viên.
 
@@ -151,11 +151,10 @@ Nút đặt hàng thực hiện việc đặt hàng giao dịch, nút này
 cùng với các nút đặt hàng khác tạo thành một dịch vụ đặt hàng.
 Dịch vụ đặt hàng cung cấp một kênh truyền thông cho 
 các nút trong mạng để phát sóng các tin nhắn chứa các giao 
-dịch, đồng bộ hoá các giao dịch và đảm bảo tính nhất quán 
+dịch, đồng bộ hóa các giao dịch và đảm bảo tính nhất quán 
 của trạng thái blockchain.
 Nút đặt hàng cũng thực thi kiểm soát truy cập cơ bản đối với 
-các kênh, hạn chế người có thể đọc và ghi dữ liệu vào chúng 
-cũng như ai có thể định cấu hình chúng. \cite{hyperledger1}
+các kênh, hạn chế người có thể đọc và ghi dữ liệu, và cấu hình chúng.\cite{hyperledger1}
 
 Khi khách hàng yêu cầu thêm một giao dịch trên blockchain, 
 nó được đưa vào một gói tin và phát sóng đến Dịch vụ đặt 
@@ -163,7 +162,7 @@ hàng. Dịch vụ đặt hàng sẽ đảm bảo rằng các giao dịch đư�
 xử lý và đóng gói thành các khối theo một thứ tự nhất định 
 và phát sóng đến tất cả các nút trong mạng. Các nút sau đó 
 sẽ xác nhận và thêm khối này vào trạng thái blockchain của 
-mình nếu khối đấy thoả mãn.
+mình nếu khối đấy thỏa mãn.
 
 Trong dịch vụ đặt hàng sử dụng cơ chế đồng thuận Kafka Orderering Service (Kafka) để khi một 
 khối mới được tạo ra bởi Kafka-based Ordering Service, nó sẽ được phát sóng đến tất cả các nút trong mạng. Các nút trong mạng sau đó sẽ xác nhận và kiểm tra tính hợp lệ của các giao dịch trong khối mới này.
@@ -261,7 +260,7 @@ Các thành phần trong mạng là:
     \item[-] \textbf{CA:} Certificate Authority, phát hành danh tính cho người dùng 
     hoặc nút của tổ chức tương ứng. Ví dụ, người dùng A1 là thành viên của 
     Tổ chức R1, khi muốn tham gia vào mạng thì sẽ gửi yêu cầu đến CA1, 
-    sau đó CA1 sẽ tạo ra một danh tính gồm khoá bí mật, khoá công khai và các 
+    sau đó CA1 sẽ tạo ra một danh tính gồm khóa bí mật, khóa công khai và các 
     đặc tính liên quan khác, sau đó trả về cho người dùng A1, từ đó về sau 
     A1 dùng danh tính đó để thực hiện các tương tác với mạng, mạng sẽ tự động 
     biết đó là người dùng A1 đến từ tổ chức R1.
@@ -295,7 +294,7 @@ Các tính năng chính của CA bao gồm:
 
 \begin{itemize}
     \item[-] Đăng ký danh tính cho các thành phần trong mạng: rootCert
-    \item[-] Cấp giấy chứng nhận tuyển sinh (ECert): Khoá bí mật và công khai được tạo bởi ứng dụng khách Fabric CA, sau đó gửi khoá công khai
+    \item[-] Cấp giấy chứng nhận tuyển sinh (ECert): Khóa bí mật và công khai được tạo bởi ứng dụng khách Fabric CA, sau đó gửi khóa công khai
     đến CA để được trả về chứng chỉ.
     \item[-] Cấp, đổi, thu hồi chứng chỉ
 \end{itemize}

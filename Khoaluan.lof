@@ -1,0 +1,19 @@
+\babel@toc {vietnamese}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {I.1}{\ignorespaces Quy trình mã hóa và giải mã\relax }}{8}{figure.caption.9}%
+\contentsline {figure}{\numberline {I.2}{\ignorespaces Đường cong elliptic $E_1$ và $E_2$\relax }}{12}{figure.caption.10}%
+\contentsline {figure}{\numberline {I.3}{\ignorespaces Phép cộng trên đường cong elliptic\relax }}{12}{figure.caption.11}%
+\contentsline {figure}{\numberline {I.4}{\ignorespaces Phép cộng điểm P với chính nó\relax }}{13}{figure.caption.12}%
+\contentsline {figure}{\numberline {I.5}{\ignorespaces Merkle Tree \relax }}{18}{figure.caption.13}%
+\contentsline {figure}{\numberline {I.6}{\ignorespaces Cây Merkle 8 lá\relax }}{20}{figure.caption.14}%
+\contentsline {figure}{\numberline {I.7}{\ignorespaces Hệ thống tập trung và phi tập trung\relax }}{21}{figure.caption.15}%
+\contentsline {figure}{\numberline {I.8}{\ignorespaces Cấu trúc của 1 khối\relax }}{23}{figure.caption.16}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {II.1}{\ignorespaces Mạng Blockchain Hyperledger Fabric \relax }}{37}{figure.caption.17}%
+\contentsline {figure}{\numberline {II.2}{\ignorespaces Tạo mạng \relax }}{38}{figure.caption.18}%
+\contentsline {figure}{\numberline {II.3}{\ignorespaces Các nút tham gia vào kênh \relax }}{39}{figure.caption.19}%
+\contentsline {figure}{\numberline {II.4}{\ignorespaces Cài đặt và khởi tạo chaincode\relax }}{40}{figure.caption.20}%
+\contentsline {figure}{\numberline {II.5}{\ignorespaces Luồng giao dịch \relax }}{40}{figure.caption.21}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {III.1}{\ignorespaces Domain Model \relax }}{46}{figure.caption.22}%
+\contentsline {figure}{\numberline {III.2}{\ignorespaces Chaincode \relax }}{47}{figure.caption.23}%

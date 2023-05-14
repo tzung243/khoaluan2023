@@ -26,7 +26,7 @@ lý chậm và khó khăn trong việc thay đổi các thông tin đã được
 trữ trên blockchain. Tuy nhiên, với sự phát triển và ứng dụng đa 
 dạng, blockchain đang trở thành một công nghệ quan trọng và tiềm 
 năng cho tương lai.
-\subsection{Hệ thống phi tập chung}
+\subsection{Hệ thống phi tập trung}
 
 Ở phần \ref{subsec:khainiemblockchain} chúng ta nói rằng Blockchain là một hệ thống 
 phi tập trung. Vậy hệ thống phi tập trung khác hệ thống tập trung
@@ -51,12 +51,12 @@ toàn bộ. Trong hệ thống này, tất cả các thực thể trong hệ th�
 ngang hàng. Các quyết định và hoạt động được phân phối trên nhiều 
 thực thể độc lập và được quyết định bởi một cộng đồng người dùng.
 
-Ưu điểm của hệ thống phi tập chung là dữ liệu sẽ được đảm bảo, 
-không bị thay đổi, không bị xóa bỏ. Hệ thống phi tập chung đảm bảo
+Ưu điểm của hệ thống phi tập trung là dữ liệu sẽ được đảm bảo, 
+không bị thay đổi, không bị xóa bỏ. Hệ thống phi tập trung đảm bảo
 tính minh bạch, an toàn, độ tin cậy và khả năng phát triển dễ dàng.
 Tuy nhiên, tốc độ xử lý chậm và khó khăn trong việc đạt được sự đồng
 thuận giữa các thực thể phân tán là những vấn đề cần giải quyết để 
-hế thống phát triển mạnh mẽ hơn.
+hệ thống phát triển mạnh mẽ hơn.
 
 \subsection{Cấu tạo của Blockchain}
 
@@ -76,7 +76,7 @@ Các thành phần này cùng hoạt động để tạo ra một hệ thống b
 \subsubsection{Cấu trúc của một khối}
 
 
-Cấu trúc của 1 khối được minh hoạ qua sơ đồ sau:
+Cấu trúc của 1 khối được minh họa qua sơ đồ sau:
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{images/Cau_truc_khoi.png}
@@ -102,10 +102,10 @@ Cấu trúc của 1 khối được minh hoạ qua sơ đồ sau:
 \subsection{Các kỹ thuật trong Blockchain}
 \subsubsection{Cấu trúc phi tập trung}
 
-Cấu trúc phi tập chung trong blockchain được xây dựng 
+Cấu trúc phi tập trung trong blockchain được xây dựng 
 để đảm bảo tính an toàn và bảo mật của hệ thống. Cấu trúc này cho phép thông tin được phân tán trên nhiều nút mạng khác nhau, giúp giảm thiểu rủi ro bị tấn công và tăng tính đáng tin cậy.
 
-Cấu trúc phi tập chung trong blockchain có có thành phần cơ bản như:
+Cấu trúc phi tập trung trong blockchain có có thành phần cơ bản như:
 \begin{itemize}
     \item[-] Mạng ngang hàng: Các nút trong mạng sẽ kết 
     nối với nhau để chia sẻ thông tin và cập nhật các giao dịch mới nhất.
@@ -113,7 +113,7 @@ Cấu trúc phi tập chung trong blockchain có có thành phần cơ bản nh�
     quán và đáng tin cậy của dữ liệu, các nút trong mạng sẽ phải đồng thuận về 
     sự thay đổi của blockchain. Các giao thức đồng thuận phổ biến bao gồm Bằng chứng công việc (PoW)
      và Bằng chứng cổ phẩn (PoS).
-    \item[-] Nút: đóng vai trò xác nhân để các khối mới và xác nhận các giao dịch.
+    \item[-] Nút: đóng vai trò xác nhận để các khối mới và xác nhận các giao dịch.
     \item[-] Blockchain: Dữ liệu được lưu trữ trên blockchain, một chuỗi
     các khối được kết nối với nhau theo thứ tự thời gian.
     \item[-] Ví: là một phần mềm hoặc thiết bị lưu trữ khóa cá nhân và
@@ -145,7 +145,7 @@ hoạt động và duy trì tính toàn vẹn của blockchain.
     và thêm mới các khối vào blockchain. Cụ thể, các nút trong mạng sẽ cạnh 
     tranh với nhau để giải quyết một bài toán tính toán phức tạp, được gọi là 
     "bài toán đào". Bài toán này yêu cầu các nút phải tìm ra một giá trị băm 
-    thoả mãn điều kiện, dựa trên các thông tin trong khối mới nhất và khối trước đó. 
+    thỏa mãn điều kiện, dựa trên các thông tin trong khối mới nhất và khối trước đó. 
     Việc giải quyết bài toán này đòi hỏi sự tiêu tốn của năng lượng tính toán, 
     thời gian và tài nguyên máy tính. Điều kiện này là giá trị “Target Difficulty”.
     \item[-] \textbf{PoS}: là một giao thức đồng thuận được sử 
@@ -197,7 +197,7 @@ sẽ được nâng cao.
     Nếu không tồn tại thì thông tin giao dịch là sai.
     \item[-] Nếu có thì kiểm tra tính toàn vẹn của giao dịch bằng cách sử dụng chữ ký số 
     của người gửi giao dịch.
-        \item[+] Sử dụng khoá công khai để giải mã chữ ký số.
+        \item[+] Sử dụng khóa công khai để giải mã chữ ký số.
         \item[+] Tính toán lại giá trị băm của dữ liệu giao dịch bằng cách sử dụng cùng
         thuật toán mã hóa được sử dụng trong blockchain.
         \item[+] So sánh hai giá trị vừa tính được. Nếu trùng khớp thì giao dịch được

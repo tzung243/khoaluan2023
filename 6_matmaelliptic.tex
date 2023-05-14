@@ -12,23 +12,23 @@ Hệ mật mã là hệ thống bao gồm các thành phần như sau:
 \begin{itemize}
     \item[-] Bản rõ là tập hợp hữu hạn các thông tin cần được bảo mật.
     \item[-] Bản mã là tập hợp hữu hạn các thông tin được mã hóa từ bản rõ.
-    \item[-] Một tập hợp các khóa: khoá công khai $K_{pub}$ và khoá bí mật $k_{pri}$.
-    \item[-] Một thuật toán mã hóa $E$, mã hoá bản rõ thành bản mã.
+    \item[-] Một tập hợp các khóa: khóa công khai $K_{pub}$ và khóa bí mật $k_{pri}$.
+    \item[-] Một thuật toán mã hóa $E$, mã hóa bản rõ thành bản mã.
     \item[-] Một thuật toán giải mã $D$, giải mã bản mã thành bản rõ gốc.
 \end{itemize}
 
-Quy trình mã hoá và giải mã được thể hiện qua sơ đồ sau:
+Quy trình mã hóa và giải mã được thể hiện qua sơ đồ sau:
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{images/encrypt-decrypt.png}
-    \caption{Quy trình mã hoá và giải mã}
+    \caption{Quy trình mã hóa và giải mã}
     \label{fig:encrypt-decrypt}
 \end{figure}
 
 Tính chất cơ bản của mật mã:
 \begin{itemize}
     \item[-] Tính bí mật: đảm báo tính bí mật của dữ liệu mà mình gửi đi và
-        chỉ những người nắm giữ khoá mới có thể đọc được nội dung.
+        chỉ những người nắm giữ khóa mới có thể đọc được nội dung.
     \item[-] Tính toàn vẹn: đảm bảo dữ liệu không bị mất mát hoặc chỉnh sửa 
     trong quá trình gửi và nhận mà không bị phát hiện.
     \item[-] Tính xác thực: đảm bảo danh tính của thực thể được xác minh.
@@ -47,7 +47,7 @@ Các hệ mật mã được chia thành hai loại chính:
 a) Hệ mật mã đối xứng
 
 Mật mã đối xứng là một hệ mật mã sử dụng cùng một khóa để mã hóa và giải mã thông tin.
-Vì vậy nên khoá bí mật phải giữ an toàn và không được chia sẻ với bất kỳ ai.
+Vì vậy nên khóa bí mật phải giữ an toàn và không được chia sẻ với bất kỳ ai.
 
 Một số hệ mật mã khóa đối xứng hiện đại hay được sử dụng là DES, AES, RC4, RC5,...
 
@@ -55,19 +55,19 @@ Hệ mật sẽ bao gồm:
 \begin{itemize}
     \item[-] Bản rõ (M)
     \item[-] Bản mã (C)
-    \item[-] Khoá (K)
-    \item[-] Mã hoá (E): $C = E(K,M)$
+    \item[-] khóa (K)
+    \item[-] Mã hóa (E): $C = E(K,M)$
     \item[-] Giải mã (D): $M = D(K,C) = D(K,E(K,M))$
 \end{itemize}
 
-Vì dùng chung một khoá nên mật mã đối xứng có một số mặt hạn chế như:
+Vì dùng trung một khóa nên mật mã đối xứng có một số mặt hạn chế như:
 \begin{itemize}
-    \item[-] Nếu bị đánh cắp hoặc mất khoá thì thông tin cần gửi sẽ bị lộ
-    \item[-] Khoá do bên thứ 3 tạo và phải gửi từ bên người gửi đến người nhận, 
-    cần phải có một kênh truyền thông an toàn để truyền khoá. Việc đảm bảo khoá 
+    \item[-] Nếu bị đánh cắp hoặc mất khóa thì thông tin cần gửi sẽ bị lộ
+    \item[-] Khóa do bên thứ 3 tạo và phải gửi từ bên người gửi đến người nhận, 
+    cần phải có một kênh truyền thông an toàn để truyền khóa. Việc đảm bảo khóa 
     không bị lộ khi truyền đi cũng là vấn đề lớn.
-    \item[-] Truyền tin giữa các nhóm nhiều người cần 1 lượng lớn khoá, vì 3 người 
-    thì không thể dùng chung khoá, giữa 2 người phải có khoá riêng để đảm bảo rằng
+    \item[-] Truyền tin giữa các nhóm nhiều người cần 1 lượng lớn khóa, vì 3 người 
+    thì không thể dùng chung khóa, giữa 2 người phải có khóa riêng để đảm bảo rằng
     thông tin truyền đi giữa 2 người không bị lộ cho người thứ 3.
     \item[-] Thông tin truyền đi có thể bị sửa đổi vì không có cơ chế xác thực.    
 \end{itemize}
@@ -76,31 +76,31 @@ Chính vì những nhược điểm như trên nên hệ mật mã bất đối 
 
 b) Hệ mật mã bất đối xứng
 
-Hệ mã bất đối xứng (hệ mã khoá công khai) là hệ mật mã sử dụng hai khóa khác nhau để mã hóa và giải mã thông tin.
-Khoá công khai dùng để mã hoá thông tin và khoá bí mật dùng để giải mã thông tin. Khoá công khai được công khai 
-cho tất cả mọi người, còn khoá bí mật thì người nhận nắm giữ.
+Hệ mã bất đối xứng (hệ mã khóa công khai) là hệ mật mã sử dụng hai khóa khác nhau để mã hóa và giải mã thông tin.
+Khóa công khai dùng để mã hóa thông tin và khóa bí mật dùng để giải mã thông tin. Khóa công khai được công khai 
+cho tất cả mọi người, còn khóa bí mật thì người nhận nắm giữ.
 
 
 Hệ mật sẽ bao gồm:
 \begin{itemize}
     \item[-] Bản rõ (M)
     \item[-] Bản mã (C)
-    \item[-] Khoá (K): 
-        \\+ Khoá công khai ($K_{pub}$)
-        \\+ Khoá bí mật ($K_{pri}$) 
-    \item[-] Mã hoá (E): $C = E(K_{pub},M)$
+    \item[-] Khóa (K): 
+        \\+ Khóa công khai ($K_{pub}$)
+        \\+ Khóa bí mật ($K_{pri}$) 
+    \item[-] Mã hóa (E): $C = E(K_{pub},M)$
     \item[-] Giải mã (D): $M = D(K_{pri},C) = D(K_{pri},E(K_{pub},M))$
 \end{itemize}
 
-Một số phương pháp sử dụng để trao đổi khoá trong có hệ mật là:
+Một số phương pháp sử dụng để trao đổi khóa trong có hệ mật là:
 \begin{itemize}
-    \item[-] Trao đổi khoá Diffie-Hellman
-    \item[-] Trao đổi khoá RSA
-    \item[-] Trao đổi khoá ElGamal
+    \item[-] Trao đổi khóa Diffie-Hellman
+    \item[-] Trao đổi khóa RSA
+    \item[-] Trao đổi khóa ElGamal
 \end{itemize}
 
-Trong khoá luận này, em sẽ tập trung vào trao đổi khoá Diffie-Hellman.
-\subsection{Trao đổi khoá Diffie-Hellman}
+Trong khóa luận này, em sẽ tập trung vào trao đổi khóa Diffie-Hellman.
+\subsection{Trao đổi khóa Diffie-Hellman}
 
 Thuật toán trao đổi khóa Diffie-Hellman giải quyết tình huống sau. Alice và
 Bob muốn chia sẻ một khóa bí mật để sử dụng trong mật mã đối xứng, nhưng
@@ -109,7 +109,7 @@ phương thức liên lạc của họ không an toàn. Mọi thông tin mà h�
 thể chia sẻ khóa mà Eve không biết? Độ khó của bài toán logarit rời
 rạc trong $\mathbb{F}^*_p$ đã đưa ra một giải pháp.
 
-% Thuật toán Trao đổi khoá Diffie - Hellman được tóm tắt ở bảng sau
+% Thuật toán Trao đổi khóa Diffie - Hellman được tóm tắt ở bảng sau
 
 % \begin{tabular}{|c|c|}
 % 	\hline
@@ -152,7 +152,7 @@ $$A' \equiv B^a \equiv (g^a)^b \equiv g^{ab} \equiv (g^b)^a \equiv A^b \equiv B'
 Giá trị này là khóa mà cả hai cùng chấp nhận sử dụng.
 
 Kẻ tấn công biết được giá trị $p,g,g^a \mod p, g^b \mod p $ nhưng không 
-tính toán được khoá $k = g^{ab} \mod p$. Đây là một bài toán khó giải 
+tính toán được khóa $k = g^{ab} \mod p$. Đây là một bài toán khó giải 
 trong thời gian đa thức. \cite{elliptic}
 
 \subsection{Mật mã đường cong elliptic}
@@ -230,7 +230,7 @@ Khi đó, giao điểm của $E$ và $L$ là ba điểm $P$, $Q$ và $R$, với 
 được hiểu là điểm nằm trên mọi đường thẳng đứng. $R=(a,b)$, tổng của $P$ và $Q$
 là điểm $R'=(a,-b)$. Tổng này được ký hiệu là $P \oplus Q$, có thể viết đơn giản $P+Q$.
 
-Luật cộng có thể được minh hoạ qua hình vẽ sau:
+Luật cộng có thể được minh họa qua hình vẽ sau:
 
 \begin{figure}[H]
 	\label{fg:fg2}
@@ -262,7 +262,7 @@ Luật cộng có thể được minh hoạ qua hình vẽ sau:
 Nếu ta muốn cộng điểm $P$ với chính nó, thì ta lấy đường thẳng L là tiếp tuyến của đồ thị
 qua điểm $P$.
 
-Kết quả được minh hoạ trong hình vẽ sau:
+Kết quả được minh họa trong hình vẽ sau:
 
 \begin{figure}[H]
 	\label{fg:fg3}
@@ -337,7 +337,7 @@ bao gồm lý thuyết số, hình học đại số, lý thuyết Galois, hình
 Đường cong elliptic $E$ trên trường hữu hạn $\mathbb{F}_q$ là một phương trình có dạng:
 $$E: Y^2 = X^3 + AX + B\ \text{với các hằng số}\ A, B \in F_p\ \text{thỏa mãn}\ 4A^3 + 27B^2 \neq 0$$
 
-Tập hợp các điểm trên $E$ có toạ độ thuộc $\mathbb{F} _p$ được kí hiệu bởi
+Tập hợp các điểm trên $E$ có tọa độ thuộc $\mathbb{F} _p$ được kí hiệu bởi
 $$E(F_p) = \{(x, y) : x, y \in \mathbb{F}_p\ \text{thỏa mãn}\ y^2 = x^3 + A x + B\} \cup \mathcal{O}$$
 
 \subsubsection{Khái niệm mật mã đường cong elliptic}
@@ -351,7 +351,7 @@ rạc cho trường hữu hạn $F_p$ bằng bài toán logarit rời rạc cho 
 Đây là các bài toán khó có thể giải quyết trong thời gian đa thức. Phù 
 hợp để sử dụng trong các ứng dụng mật mã.
 
-a) Trao đổi khoá Diffie - Hellman trên đường cong elliptic
+a) Trao đổi khóa Diffie - Hellman trên đường cong elliptic
 
 	Alice và Bob cùng đồng ý sử dụng một đường cong elliptic $E (\mathbb{F}_p)$ và một điểm $P \in E (\mathbb{F}_p)$.
 	Alice bí mật chọn một giá trị $n_A$, Bob chọn một giá trị $n_B$. Cả hai sử dụng số bí mật của họ và tính
@@ -413,7 +413,7 @@ Hai người cũng cùng sử dụng 1 hàm băm H.
 
 Các giá trị công khai là a,b,G,p.
 
-\textbf{Bước 1: Thuật toán sinh khoá} 
+\textbf{Bước 1: Thuật toán sinh khóa} 
 Alice bí mật chọn một giá trị $n_A$.
 
 Alice tạo private key: $n_A$.
